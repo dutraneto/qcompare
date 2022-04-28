@@ -1,7 +1,7 @@
 // import App from "next/app";
 import Head from 'next/head'
 
-import GlobalStyles from 'styles/globals'
+import '../styles/globals.scss'
 
 function App({ Component, pageProps }) {
   return (
@@ -21,7 +21,6 @@ function App({ Component, pageProps }) {
         <link rel="manifest" href="/manifest.json" />
         <meta name="description" content="QA app for Quarry" />
       </Head>
-      <GlobalStyles />
       <Component {...pageProps} />
     </>
   )
