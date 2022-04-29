@@ -5,7 +5,7 @@
 @layer base {
   html {
     scroll-behavior: smooth;
-    @apply bg-purple bg-opacity-30;
+    @apply bg-white;
   }
   h1 {
     @apply text-5xl;
@@ -79,7 +79,7 @@
 }
 
 // Rich Editor Overrides
-@responsive {
+@layer {
   @media screen and (max-width: 1024px) {
     .image {
       width: 100% !important;

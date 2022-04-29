@@ -5,11 +5,12 @@ module.exports = {
   content: ['./src/**/*.{vue,js,ts,jsx,tsx}'],
   theme: {
     fontFamily: {
-      sans: ['Roboto', ...defaultTheme.fontFamily.sans],
+      sans: ['Monserrat', ...defaultTheme.fontFamily.sans],
       serif: [...defaultTheme.fontFamily.serif],
       mono: [...defaultTheme.fontFamily.mono]
     },
     colors: {
+      'white': '#FFFFFF',
       'red': '#FF0000',
       'orange': '#FF8700',
       'yellow': '#FFD700',
