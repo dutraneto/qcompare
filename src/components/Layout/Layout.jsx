@@ -1,5 +1,5 @@
 import Head from 'next/head'
-
+import Header from 'components/Header/Header'
 function Layout(props) {
   return (
     <>
@@ -18,7 +18,7 @@ function Layout(props) {
         <link rel="manifest" href="/manifest.json" />
         <meta name="description" content="QA app for Quarry" />
       </Head>
-      {/* <Header {...props} /> */}
+      <Header {...props.data} />
       <main>{props.children}</main>
       {/* <Footer {...props} /> */}
     </>
