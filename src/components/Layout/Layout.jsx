@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import Header from 'components/Header/Header'
+import Main from 'components/Main/Main'
 function Layout(props) {
   return (
     <>
@@ -19,7 +20,11 @@ function Layout(props) {
         <meta name="description" content="QA app for Quarry" />
       </Head>
       <Header {...props.data} />
-      <main>{props.children}</main>
+      <main className="bg-white p-6">
+        <>
+          <ToolTip />
+        </>
+      </main>
       {/* <Footer {...props} /> */}
     </>
   )

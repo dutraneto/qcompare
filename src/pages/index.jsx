@@ -8,6 +8,6 @@ const data = {
   }
 }
 
-export default function Home() {
-  return <Layout data={data}></Layout>
+export default function Index() {
+  return <Layout data={data} />
 }
