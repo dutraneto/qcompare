@@ -5,6 +5,12 @@ const data = {
   logo: {
     url: 'https://www.quarry.com/_themes/quarry/_/img/logo-quarry.png',
     alt: 'Quarry Logo'
+  },
+  tooltip: {
+    iconUrl: '/images/icontip.svg',
+    title: 'Compare Text',
+    description:
+      'You just have to copy and paste your files and click Show Difference. Qcompare will find the difference between two texts'
   }
 }
 

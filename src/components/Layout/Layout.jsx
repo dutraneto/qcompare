@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import Header from 'components/Header/Header'
-import Main from 'components/Main/Main'
+import ToolTip from 'components/ToolTip/ToolTip'
 function Layout(props) {
   return (
     <>
@@ -22,7 +22,7 @@ function Layout(props) {
       <Header {...props.data} />
       <main className="bg-white p-6">
         <>
-          <ToolTip />
+          <ToolTip {...props.data.tooltip} />
         </>
       </main>
       {/* <Footer {...props} /> */}
