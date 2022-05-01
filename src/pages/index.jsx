@@ -1,6 +1,6 @@
 import Layout from 'components/Layout/Layout'
 
-const data = {
+const localData = {
   siteName: 'The Qcompare Texts on Your Hand',
   logo: {
     url: 'https://www.quarry.com/_themes/quarry/_/img/logo-quarry.png',
@@ -15,5 +15,5 @@ const data = {
 }
 
 export default function Index() {
-  return <Layout data={data} />
+  return <Layout {...localData} />
 }

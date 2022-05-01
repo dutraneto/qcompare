@@ -1,17 +1,17 @@
 import Link from 'next/link'
 import Image from 'next/image'
 function Header(props) {
-  const { logo, siteName } = props
+  const { url, alt, siteName } = props
   return (
     <header className="bg-gray-200 p-6 flex items-end">
       <Link href={`/`}>
         <a>
-          {logo.url && (
+          {url && (
             <Image
-              src={logo.url}
+              src={url}
               width={69}
               height={95}
-              alt={logo.alt}
+              alt={alt}
               className="fluid"
             />
           )}

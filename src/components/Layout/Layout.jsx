@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import Header from 'components/Header/Header'
 import ToolTip from 'components/ToolTip/ToolTip'
+import Quote from 'components/Quote/Quote'
 function Layout(props) {
   return (
     <>
@@ -19,11 +20,12 @@ function Layout(props) {
         <link rel="manifest" href="/manifest.json" />
         <meta name="description" content="QA app for Quarry" />
       </Head>
-      <Header {...props.data} />
+      <Header {...props.logo} siteName={props.siteName} />
       <main className="bg-white p-6">
-        <>
-          <ToolTip {...props.data.tooltip} />
-        </>
+        <section className="flex gap-5">
+          <ToolTip {...props.tooltip} />
+          <Quote />
+        </section>
       </main>
       {/* <Footer {...props} /> */}
     </>
