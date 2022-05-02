@@ -33,11 +33,11 @@
 
   input,
   textarea {
-    @apply border-2 p-4;
+    @apply border-2 border-gray-200 p-4;
   }
 
   label {
-    @apply hidden;
+    @apply block mb-3;
   }
 }
 

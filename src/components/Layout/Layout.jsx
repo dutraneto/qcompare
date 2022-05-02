@@ -2,6 +2,7 @@ import Head from 'next/head'
 import Header from 'components/Header/Header'
 import ToolTip from 'components/ToolTip/ToolTip'
 import Quote from 'components/Quote/Quote'
+import FormView from '../FormView/FormView'
 function Layout(props) {
   return (
     <>
@@ -22,9 +23,12 @@ function Layout(props) {
       </Head>
       <Header {...props.logo} siteName={props.siteName} />
       <main className="bg-white p-6">
-        <section className="flex gap-5">
+        <section className="flex gap-5  mb-5">
           <ToolTip {...props.tooltip} />
           <Quote />
+        </section>
+        <section className="py-6 px-3 mb-5 shadow-sm">
+          <FormView />
         </section>
       </main>
       {/* <Footer {...props} /> */}
