@@ -2,7 +2,7 @@ import Head from 'next/head'
 import Header from 'components/Header/Header'
 import ToolTip from 'components/ToolTip/ToolTip'
 import Quote from 'components/Quote/Quote'
-import FormView from '../FormView/FormView'
+import FormView from '../Form/FormView'
 function Layout(props) {
   return (
     <>

@@ -12,14 +12,15 @@ const styles = {
   }
 }
 
-const Diff = ({ string1 = '', string2 = '', mode = 'characters' }) => {
+const Diff = ({ string1 = '', string2 = '', mode = 'words' }) => {
   React.useEffect(() => {
     window.diff = diff
   })
   let groups = []
 
   if (mode === 'characters') groups = diff.diffChars(string1, string2)
-  if (mode === 'words') groups = diff.diffWords(string1, string2)
+  if (mode === 'words') groups = diff.diffWordsWithSpace(string1, string2)
+  console.log(groups)
 
   const mappedNodes = groups.map((group, idx) => {
     const { value, added, removed } = group
