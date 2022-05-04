@@ -8,7 +8,7 @@ const Diff = ({ string1 = '', string2 = '', mode = 'words' }) => {
     .split('\n')
     .map((line, i) => {
       return line === ''
-        ? `<div class='w-full h-5 bg-pink mb-1'>${i + 1}</div>`
+        ? `<div class='w-full h-5 bg-pink mb-1'></div>`
         : `<div class='block'>${i + 1} ${line}</div>`
     })
     .join('\n')
@@ -16,7 +16,7 @@ const Diff = ({ string1 = '', string2 = '', mode = 'words' }) => {
     .split('\n')
     .map((line, i) => {
       return line === ''
-        ? `<div class="w-full h-5 bg-pink mb-1">${i + 1}</div>`
+        ? `<div class="w-full h-5 bg-pink mb-1"></div>`
         : `<div class='block'>${i + 1} ${line}</div>`
     })
     .join('\n')
