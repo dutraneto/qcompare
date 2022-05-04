@@ -6,20 +6,22 @@ const Diff = ({ string1 = '', string2 = '', mode = 'words' }) => {
   const { before, after } = diff.diffPatch(string1, string2)
   const mappedBefore = before
     .split('\n')
-    .map((line, i) => {
+    .map((line) => {
       return line === ''
-        ? `<div class='w-full h-5 bg-pink mb-1'></div>`
-        : `<div class='block'>${i + 1} ${line}</div>`
+        ? `<div class=' lines w-full h-5 bg-pink mb-1'></div>`
+        : `<div class='lines'>${line}</div>`
     })
     .join('\n')
   const mappedAfter = after
     .split('\n')
-    .map((line, i) => {
+    .map((line) => {
       return line === ''
-        ? `<div class="w-full h-5 bg-pink mb-1"></div>`
-        : `<div class='block'>${i + 1} ${line}</div>`
+        ? `<div class="lines w-full h-5 bg-pink mb-1"></div>`
+        : `<div class='lines'>${line}</div>`
     })
     .join('\n')
+  console.log('Before =>', mappedBefore)
+  console.log('After =>', mappedAfter)
   // console.dir(before)
   // before
   //   .split('\n')
@@ -51,13 +53,13 @@ const Diff = ({ string1 = '', string2 = '', mode = 'words' }) => {
       </div>
       <div className="flex gap-3 mb-12">
         <div
-          className="flex-1 p-4 bg-gray-100"
+          className="flex-1 bg-gray-100 p-4"
           dangerouslySetInnerHTML={{
             __html: mappedBefore
           }}
         />
         <div
-          className="flex-1 p-4 bg-gray-100"
+          className="flex-1 bg-gray-100 p-4"
           dangerouslySetInnerHTML={{
             __html: mappedAfter
           }}

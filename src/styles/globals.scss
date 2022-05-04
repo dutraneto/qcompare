@@ -32,8 +32,10 @@
   }
 
   input,
-  textarea {
-    @apply border-2 border-gray-200 p-4;
+  textarea,
+ {
+    @apply border-2 p-4 border-gray-200;
+
   }
 
   label {
@@ -41,11 +43,11 @@
   }
 
   del {
-    @apply bg-pink text-dark-red;
+    @apply bg-pink text-dark-red inline-block min-w-min w-2 min-h-full h-6;
   }
 
   ins {
-    @apply bg-palegreen text-dark-green;
+    @apply bg-palegreen text-dark-green inline-block min-w-min w-2 min-h-full h-6;
   }
 }
 
