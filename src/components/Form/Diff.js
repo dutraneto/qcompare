@@ -1,40 +1,70 @@
-import * as diff from 'diff'
+import diff from 'simple-text-diff'
 import * as React from 'react'
 
-const styles = {
-  added: {
-    color: 'green',
-    backgroundColor: '#b5efdb'
-  },
-  removed: {
-    color: 'red',
-    backgroundColor: '#fec4c0'
-  }
-}
-
 const Diff = ({ string1 = '', string2 = '', mode = 'words' }) => {
-  React.useEffect(() => {
-    window.diff = diff
-  })
-  let groups = []
-
-  if (mode === 'characters') groups = diff.diffChars(string1, string2)
-  if (mode === 'words') groups = diff.diffWordsWithSpace(string1, string2)
-  console.log(groups)
-
-  const mappedNodes = groups.map((group, idx) => {
-    const { value, added, removed } = group
-    let nodeStyles
-    if (added) nodeStyles = styles.added
-    if (removed) nodeStyles = styles.removed
+  // if (mode === 'words') {
+  const { before, after } = diff.diffPatch(string1, string2)
+  const mappedBefore = before
+    .split('\n')
+    .map((line, i) => {
+      return line === ''
+        ? `<div class='w-full h-5 bg-pink mb-1'>${i + 1}</div>`
+        : `<div class='block'>${i + 1} ${line}</div>`
+    })
+    .join('\n')
+  const mappedAfter = after
+    .split('\n')
+    .map((line, i) => {
+      return line === ''
+        ? `<div class="w-full h-5 bg-pink mb-1">${i + 1}</div>`
+        : `<div class='block'>${i + 1} ${line}</div>`
+    })
+    .join('\n')
+  // console.dir(before)
+  // before
+  //   .split('\n')
+  //   .map((line, i) => `<span class='editorLineNumber'>${i + 1}</span>${line}`)
+  // .join('\n')
+  // }
+  // console.log(diff.diffPatch(string1, string2))
+  // const mappedNodes = groups.map((group, idx) => {
+  //   const { value, added, removed } = group
+  //   let nodeStyles
+  //   if (added) nodeStyles = styles.added
+  //   if (removed) nodeStyles = styles.removed
+  //   return (
+  //     <span key={idx} style={nodeStyles}>
+  //       {value}
+  //     </span>
+  //   )
+  // })
+  if (mappedBefore === mappedAfter)
     return (
-      <span key={idx} style={nodeStyles}>
-        {value}
-      </span>
+      <div className="flex justify-center items-center full-width bg-palegreen text-dark-green h-20 mb-12">
+        Texts are Identical
+      </div>
     )
-  })
-
-  return <span>{mappedNodes}</span>
+  return (
+    <>
+      <div className="flex justify-center items-center full-width bg-pink text-dark-red h-20 mb-12">
+        Texts are Different
+      </div>
+      <div className="flex gap-3 mb-12">
+        <div
+          className="flex-1 p-4 bg-gray-100"
+          dangerouslySetInnerHTML={{
+            __html: mappedBefore
+          }}
+        />
+        <div
+          className="flex-1 p-4 bg-gray-100"
+          dangerouslySetInnerHTML={{
+            __html: mappedAfter
+          }}
+        />
+      </div>
+    </>
+  )
 }
 
 export default Diff

@@ -15,11 +15,14 @@ module.exports = {
       'orange': '#FF8700',
       'yellow': '#FFD700',
       'green': '#00C85A',
-      'green-dark': '#00AFAF',
+      'dark-green': '#013220',
+      'palegreen': '#98fb98',
       'blue': '#008CD2',
       'purple': '#9B41AF',
       'dark-red': '#C81487',
-      'gray-200': 'rgb(229 231 235)'
+      'pink': '#ffc0cb',
+      'gray-200': 'rgb(229 231 235)',
+      'gray-100': '#fafaf9'
     },
     boxShadow: {
       'sm': '0 0 9px rgba(0,0,0, 0.11)'

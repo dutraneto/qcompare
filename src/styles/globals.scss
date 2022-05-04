@@ -39,6 +39,14 @@
   label {
     @apply block mb-3;
   }
+
+  del {
+    @apply bg-pink text-dark-red;
+  }
+
+  ins {
+    @apply bg-palegreen text-dark-green;
+  }
 }
 
 @layer components {

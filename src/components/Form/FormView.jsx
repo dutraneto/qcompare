@@ -24,11 +24,11 @@ function FormView() {
               className="w-full h-80"
               id="textArea1"
               name=""
-              cols="30"
-              rows="10"
+              cols={30}
+              rows={10}
               title="Paste the copy content"
               placeholder="Paste the copy content here"
-              spellCheck="true"
+              spellCheck={true}
             ></textarea>
           </div>
           <div className="flex-1 text-center">
@@ -37,11 +37,11 @@ function FormView() {
               className="w-full h-80"
               id="textArea2"
               name=""
-              cols="30"
-              rows="10"
+              cols={30}
+              rows={10}
               title="Paste the Email/Landing Page content here"
               placeholder="Paste the Email/Landing Page content here"
-              spellCheck="true"
+              spellCheck={true}
             ></textarea>
           </div>
         </div>
