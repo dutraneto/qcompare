@@ -3,6 +3,8 @@ import Header from 'components/Header/Header'
 import ToolTip from 'components/ToolTip/ToolTip'
 import Quote from 'components/Quote/Quote'
 import FormView from '../Form/FormView'
+import Footer from 'components/Footer/Footer'
+
 function Layout(props) {
   return (
     <>
@@ -31,7 +33,7 @@ function Layout(props) {
           <FormView />
         </section>
       </main>
-      {/* <Footer {...props} /> */}
+      <Footer />
     </>
   )
 }
