@@ -22,7 +22,8 @@ module.exports = {
       'dark-red': '#C81487',
       'pink': '#ffc0cb',
       'gray-200': 'rgb(229 231 235)',
-      'gray-100': '#fafaf9'
+      'gray-100': '#fafaf9',
+      'gray-50': '#f7f7f7'
     },
     boxShadow: {
       'sm': '0 0 9px rgba(0,0,0, 0.11)'

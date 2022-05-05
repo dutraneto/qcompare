@@ -1,7 +1,7 @@
 import Layout from 'components/Layout/Layout'
 
 const localData = {
-  siteName: 'The Qcompare Texts on Your Hand',
+  siteName: 'Qcompare',
   logo: {
     url: 'https://www.quarry.com/_themes/quarry/_/img/logo-quarry.png',
     alt: 'Quarry Logo'
@@ -10,7 +10,7 @@ const localData = {
     iconUrl: '/images/icontip.svg',
     title: 'Compare Text',
     description:
-      'You just have to copy and paste your files and click Show Difference. Qcompare will find the difference between two texts'
+      'You just have to copy and paste your texts and click on the button. Qcompare will find the difference between two texts'
   }
 }
 
