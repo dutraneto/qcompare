@@ -42,7 +42,7 @@ function FormView() {
     <>
       {string1 && string2 && diffView()}
       <form className="form" onSubmit={handleSubmit}>
-        <div className="flex gap-3 mb-3">
+        <div className="flex gap-3 mb-4">
           <TextAreaWrapper
             id="textArea1"
             labelText="Original Copy"

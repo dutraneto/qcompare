@@ -9,7 +9,7 @@ function Main(props) {
         <ToolTip {...props} />
         <Quote />
       </section>
-      <section className="py-6 px-3 mb-5 shadow-sm">
+      <section className="py-6 px-3 mb-5 shadow-sm rounded">
         <FormView />
       </section>
     </main>

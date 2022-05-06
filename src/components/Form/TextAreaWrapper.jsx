@@ -4,7 +4,7 @@ export default function TextAreaWrapper(props) {
     <div className="flex-1 text-center">
       <label htmlFor={id}>{labelText}</label>
       <textarea
-        className="w-full h-80"
+        className="w-full h-60 rounded"
         id={id}
         name={name}
         cols={30}
