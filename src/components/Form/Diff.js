@@ -7,18 +7,18 @@ const Diff = ({ string1, string2 }) => {
     .split('\n')
     .map((line) => {
       return line === ''
-        ? `<div class=' lines w-full h-5 bg-palegreen mb-1'></div>`
-        : `<div class='lines'>${line}</div>`
+        ? `<div class='outputOriginal w-full h-5 mb-1'></div>`
+        : `<div class='outputOriginal mb-1'>${line}</div>`
     })
-    .join('\n')
+    .join('')
   const mappedAfter = after
     .split('\n')
     .map((line) => {
       return line === ''
-        ? `<div class="lines w-full h-5 bg-pink mb-1"></div>`
-        : `<div class='lines'>${line}</div>`
+        ? `<div class='outputChanged w-full h-5  mb-1'></div>`
+        : `<div class='outputChanged mb-1'>${line}</div>`
     })
-    .join('\n')
+    .join('')
   console.log('Before =>', mappedBefore)
   console.log('After =>', mappedAfter)
 

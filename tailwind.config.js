@@ -7,7 +7,7 @@ module.exports = {
     fontFamily: {
       sans: ['Monserrat', ...defaultTheme.fontFamily.sans],
       serif: [...defaultTheme.fontFamily.serif],
-      mono: [...defaultTheme.fontFamily.mono]
+      mono: 'monospace'
     },
     colors: {
       'white': '#FFFFFF',

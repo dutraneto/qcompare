@@ -1,5 +1,5 @@
 import Diff from './Diff'
-import TextAreaWrapper from './TextAreaWrapper'
+import TextArea from './TextArea'
 import Button from './Button'
 import * as React from 'react'
 import confetti from 'canvas-confetti'
@@ -27,7 +27,7 @@ function FormView() {
         initialText: 'Texts are Different',
         bgColor: 'bg-red'
       })
-  }, [string1, string2])
+  })
 
   function handleSubmit(event) {
     event.preventDefault()
@@ -43,19 +43,21 @@ function FormView() {
       {string1 && string2 && diffView()}
       <form className="form" onSubmit={handleSubmit}>
         <div className="flex gap-3 mb-4">
-          <TextAreaWrapper
+          <TextArea
             id="textArea1"
             labelText="Original Copy"
             title="Paste the copy content"
             placeholder="Paste the copy content here"
             name={string1}
+            numbered={'numberedOriginal'}
           />
-          <TextAreaWrapper
+          <TextArea
             id="textArea2"
             labelText="Second Copy"
             title="Paste a text to compare with copy"
             placeholder="Paste the email content here"
             name={string2}
+            numbered={'numberedChanged'}
           />
         </div>
         <div className="text-center">
