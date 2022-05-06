@@ -52,11 +52,11 @@
   }
 
   del {
-    @apply bg-pink text-dark-red inline-block min-w-min w-2 min-h-full h-6;
+    @apply bg-pink text-dark-red min-w-min w-2 min-h-full h-6 inline-block;
   }
 
   ins {
-    @apply bg-palegreen text-dark-green inline-block min-w-min w-2 min-h-full h-6;
+    @apply bg-palegreen text-dark-green min-w-min w-2 min-h-full h-6 inline-block;
   }
 }
 
