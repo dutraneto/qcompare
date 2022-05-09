@@ -45,7 +45,7 @@ function FormView() {
   }
 
   function diffView() {
-    return <Diff string1={string1} string2={string2} mode={'characters'} />
+    return <Diff string1={string1} string2={string2} mode={'words'} />
   }
   return (
     <>
@@ -58,7 +58,7 @@ function FormView() {
             title="Paste the copy content"
             placeholder="Paste the copy content here"
             name={string1}
-            numbered={'numberedOriginal'}
+            // numbered={'numberedOriginal'}
           />
           <TextArea
             id="textArea2"
@@ -66,7 +66,7 @@ function FormView() {
             title="Paste a text to compare with copy"
             placeholder="Paste the email content here"
             name={string2}
-            numbered={'numberedChanged'}
+            // numbered={'numberedChanged'}
           />
         </div>
         <div className="text-center">

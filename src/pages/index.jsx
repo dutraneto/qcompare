@@ -7,7 +7,7 @@ const localData = {
     alt: 'Quarry Logo'
   },
   tooltip: {
-    iconUrl: '/images/icontip.png',
+    iconUrl: '/images/icontip1.png',
     title: 'Qcompare',
     description:
       'You just have to copy and paste your texts and click on the button. <br>Qcompare will find the difference between two texts'
