@@ -11,7 +11,7 @@ export default function TextArea(props) {
         rows={10}
         title={title}
         placeholder={placeholder}
-        spellCheck={true}
+        spellCheck
       ></textarea>
     </div>
   )

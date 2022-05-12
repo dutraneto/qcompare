@@ -40,8 +40,8 @@ function FormView() {
 
   function handleSubmit(event) {
     event.preventDefault()
-    setString1(event.target.elements.textArea1.value)
-    setString2(event.target.elements.textArea2.value)
+    setString1(event.target.elements.textArea1.value.trim())
+    setString2(event.target.elements.textArea2.value.trim())
   }
 
   function diffView() {
@@ -58,7 +58,6 @@ function FormView() {
             title="Paste the copy content"
             placeholder="Paste the copy content here"
             name={string1}
-            // numbered={'numberedOriginal'}
           />
           <TextArea
             id="textArea2"
@@ -66,7 +65,6 @@ function FormView() {
             title="Paste a text to compare with copy"
             placeholder="Paste the email content here"
             name={string2}
-            // numbered={'numberedChanged'}
           />
         </div>
         <div className="text-center">

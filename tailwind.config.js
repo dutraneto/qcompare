@@ -15,15 +15,16 @@ module.exports = {
       'orange': '#FF8700',
       'yellow': '#FFD700',
       'green': '#00C85A',
-      'dark-green': '#013220',
+      'dark-green': '#556B2F',
       'palegreen': '#98fb98',
       'blue': '#008CD2',
       'purple': '#9B41AF',
       'dark-red': '#C81487',
       'pink': '#ffc0cb',
-      'gray-200': 'rgb(229 231 235)',
+      'gray-200': 'rgb(248 250 252)',
       'gray-100': '#fafaf9',
-      'gray-50': '#f7f7f7'
+      'gray-50': '#f7f7f7',
+      'slate-400': 'rgb(203 213 225)'
     },
     boxShadow: {
       'sm': '0 0 9px rgba(0,0,0, 0.11)'
