@@ -5,11 +5,9 @@ import * as React from 'react'
 import confetti from 'canvas-confetti'
 
 function FormView() {
-  function stateOfButton(args) {
-    setButtonState(args)
-  }
   const [string1, setString1] = React.useState('')
   const [string2, setString2] = React.useState('')
+
   const [buttonState, setButtonState] = React.useState({
     initialText: 'Compare Text',
     bgColor: 'bg-blue'
@@ -34,8 +32,6 @@ function FormView() {
         initialText: 'Texts are Different',
         bgColor: 'bg-red'
       })
-
-    console.log('Aqui está renderizando')
   }, [string1, string2])
 
   function handleSubmit(event) {
@@ -44,12 +40,16 @@ function FormView() {
     setString2(event.target.elements.textArea2.value.trim())
   }
 
+  function stateOfButton(args) {
+    setButtonState(args)
+  }
+
   function diffView() {
     return <Diff string1={string1} string2={string2} mode={'words'} />
   }
   return (
     <>
-      {(string1 && diffView()) || (string2 && diffView)}
+      {(string1 && diffView()) || (string2 && diffView())}
       <form className="form" onSubmit={handleSubmit}>
         <div className="flex gap-3 mb-4">
           <TextArea
@@ -58,6 +58,7 @@ function FormView() {
             title="Paste the copy content"
             placeholder="Paste the copy content here"
             name={string1}
+            value={string1}
           />
           <TextArea
             id="textArea2"
@@ -65,6 +66,7 @@ function FormView() {
             title="Paste a text to compare with copy"
             placeholder="Paste the email content here"
             name={string2}
+            value={string2}
           />
         </div>
         <div className="text-center">
