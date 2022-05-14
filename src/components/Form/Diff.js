@@ -25,17 +25,6 @@ const Diff = ({ string1, string2, mode = 'words' }) => {
     }
   }, [string1, string2, mode])
 
-  // function hasEnter(value) {
-  //   if (value === '') {
-  //     return
-  //   }
-  //   const newValue = value
-  //     .split('\n')
-  //     .map((s) => s)
-  //     .join(`\n`)
-  //   return newValue
-  // }
-
   const mappedNodesBefore = groups.map((group, index) => {
     let { value, added, removed } = group
     let nodeStyles = {}
@@ -47,11 +36,8 @@ const Diff = ({ string1, string2, mode = 'words' }) => {
     }
 
     const isBreakLine = value.includes('\n')
-    console.log(isBreakLine)
     if (isBreakLine) {
-      console.log('Is break line')
       value.split('\n').map((line, index) => {
-        console.log(line)
         if (value[index] == '\n') {
           return <div key={index} className={`mb-1 h-4 bg-slate-400`} />
         }
@@ -64,7 +50,6 @@ const Diff = ({ string1, string2, mode = 'words' }) => {
         className={`lines font-mono text-base h-5 mb-1 ${nodeStyles.background} ${nodeStyles.color} whitespace-pre-line`}
       >
         {value}
-        {/* {value.includes('\n') ? hasEnter(value) : value} */}
       </span>
     )
   })
@@ -79,11 +64,8 @@ const Diff = ({ string1, string2, mode = 'words' }) => {
       nodeStyles = { ...styles.removed }
     }
     const isBreakLine = value.includes('\n')
-    console.log(isBreakLine)
     if (isBreakLine) {
-      console.log('Is break line')
       value.split('\n').map((line, index) => {
-        console.log(line)
         if (value[index] == '\n') {
           return <div key={index} className={`mb-1 h-4 bg-slate-400`} />
         }
