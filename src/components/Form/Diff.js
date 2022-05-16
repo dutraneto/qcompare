@@ -25,32 +25,61 @@ const Diff = ({ string1, string2, mode = 'words' }) => {
     }
   }, [string1, string2, mode])
 
+  function hasWhiteSpace(s) {
+    return s.indexOf('  ') >= 0
+  }
+
   const mappedNodesBefore = groups.map((group, index) => {
     let { value, added, removed } = group
+    console.log(value.split(' '))
     let nodeStyles = {}
     if (added) {
-      value = ''
+      value = null
     }
     if (removed) {
       nodeStyles = { ...styles.added }
     }
 
-    const isBreakLine = value.includes('\n')
-    if (isBreakLine) {
-      value.split('\n').map((line, index) => {
-        if (value[index] == '\n') {
-          return <div key={index} className={`mb-1 h-4 bg-slate-400`} />
+    if (value !== null) {
+      const replacedValue = value.replace(/\r?\n/g, '\r\n')
+      return replacedValue.split('\r\n').map((line, index) => {
+        if (line != '') {
+          return (
+            <>
+              <span
+                key={index}
+                className={`lines font-mono text-base h-5 mb-1 ${nodeStyles.background} ${nodeStyles.color} whitespace-pre-line`}
+              >
+                {line}
+              </span>
+              {hasWhiteSpace(line) ? (
+                <span
+                  className={`font-bold bg-pink px-[6px] py-1 w-6 rounded-full hover:rounded-lg hover:p-2 text-xs hover:w-auto h-6 hover:h-auto overflow-hidden absolute right-2 bottom-2 cursor-pointer animate-pulse transition ease-in-out delay-75 duration-100 hover:animate-none hover:transition-all`}
+                >
+                  <span>❗️</span>
+                  <br />
+                  Check for double spaces
+                </span>
+              ) : null}
+            </>
+          )
         }
-        return line
+        return (
+          line === '' && (
+            <div key={index} className={`mb-px h-4 bg-slate-400`} />
+          )
+        )
       })
     }
     return (
-      <span
-        key={index}
-        className={`lines font-mono text-base h-5 mb-1 ${nodeStyles.background} ${nodeStyles.color} whitespace-pre-line`}
-      >
-        {value}
-      </span>
+      <>
+        <span
+          key={index}
+          className={`lines font-mono text-base h-5 mb-1 ${nodeStyles.background} ${nodeStyles.color} whitespace-pre-line`}
+        >
+          {value}
+        </span>
+      </>
     )
   })
 
@@ -58,18 +87,41 @@ const Diff = ({ string1, string2, mode = 'words' }) => {
     let { value, added, removed } = group
     let nodeStyles = {}
     if (removed) {
-      value = ''
+      value = null
     }
     if (added) {
       nodeStyles = { ...styles.removed }
     }
-    const isBreakLine = value.includes('\n')
-    if (isBreakLine) {
-      value.split('\n').map((line, index) => {
-        if (value[index] == '\n') {
-          return <div key={index} className={`mb-1 h-4 bg-slate-400`} />
+
+    if (value !== null) {
+      const replacedValue = value.replace(/\r?\n/g, '\r\n')
+      return replacedValue.split('\r\n').map((line, index) => {
+        if (line != '') {
+          return (
+            <>
+              <span
+                key={index}
+                className={`lines font-mono text-base h-5 mb-1 ${nodeStyles.background} ${nodeStyles.color} whitespace-pre-line`}
+              >
+                {line}
+              </span>
+              {hasWhiteSpace(line) ? (
+                <span
+                  className={`font-bold bg-palegreen px-[6px] py-1 w-6 rounded-full hover:rounded-lg hover:p-2 text-xs hover:w-auto h-6 hover:h-auto overflow-hidden absolute right-2 bottom-2 cursor-pointer animate-pulse transition ease-in-out delay-75 duration-100 hover:animate-none hover:transition-all`}
+                >
+                  <span>❗️</span>
+                  <br />
+                  Check for double spaces
+                </span>
+              ) : null}
+            </>
+          )
         }
-        return line
+        return (
+          line === '' && (
+            <div key={index} className={`mb-px h-4 bg-slate-400`} />
+          )
+        )
       })
     }
     return (
@@ -85,10 +137,10 @@ const Diff = ({ string1, string2, mode = 'words' }) => {
   return (
     <>
       <div className="flex gap-3 mb-12">
-        <div className="flex-1 bg-gray-200 p-4 overflow-scroll">
+        <div className="flex-1 bg-gray-200 p-4 relative">
           {mappedNodesBefore}
         </div>
-        <div div className="flex-1 bg-gray-200 p-4 overflow-scroll">
+        <div div className="flex-1 bg-gray-200 p-4 relative">
           {mappedNodesAfter}
         </div>
       </div>
