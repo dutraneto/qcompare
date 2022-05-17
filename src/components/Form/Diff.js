@@ -20,7 +20,7 @@ const Diff = ({ string1, string2, mode = 'words' }) => {
     if (mode === 'words') {
       setGroups(diff.diffWordsWithSpace(string1, string2))
     }
-    if (mode === 'characters') {
+    if (mode === 'chars') {
       setGroups(diff.diffChars(string1, string2))
     }
   }, [string1, string2, mode])

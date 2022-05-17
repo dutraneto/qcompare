@@ -7,6 +7,7 @@ import confetti from 'canvas-confetti'
 function FormView() {
   const [string1, setString1] = React.useState('')
   const [string2, setString2] = React.useState('')
+  const [selectedEnabled, setSelectedEnabled] = React.useState('words')
 
   const [buttonState, setButtonState] = React.useState({
     initialText: 'Compare Text',
@@ -32,7 +33,8 @@ function FormView() {
         initialText: 'Texts are Different',
         bgColor: 'bg-red'
       })
-  }, [string1, string2])
+    console.log(selectedEnabled)
+  }, [string1, string2, selectedEnabled])
 
   function handleSubmit(event) {
     event.preventDefault()
@@ -45,12 +47,12 @@ function FormView() {
   }
 
   function diffView() {
-    return <Diff string1={string1} string2={string2} mode={'words'} />
+    return <Diff string1={string1} string2={string2} mode={selectedEnabled} />
   }
   return (
     <>
       {(string1 && diffView()) || (string2 && diffView())}
-      <form className="form" onSubmit={handleSubmit}>
+      <form className="form relative overflow-x-hidden" onSubmit={handleSubmit}>
         <div className="flex gap-3 mb-4">
           <TextArea
             id="textArea1"
@@ -74,6 +76,39 @@ function FormView() {
             buttonText={buttonState.initialText}
             bgColor={buttonState.bgColor}
           />
+        </div>
+        <div className="flex items-center gap-5 absolute -right-44 hover:right-0 bottom-0 bg-gray-200 p-px transition-all">
+          <span className="animate-pulse">⬅</span>
+          <div className="flex items-baseline">
+            <input
+              className="cursor-pointer"
+              type="radio"
+              name="option"
+              id="words"
+              checked={selectedEnabled === 'words'}
+              onChange={() => setSelectedEnabled('words')}
+              value="words"
+              aria-label="words"
+            />
+            <label className="mx-2 my-0 cursor-pointer pd-0" htmlFor="words">
+              Words
+            </label>
+          </div>
+          <div className="flex items-baseline">
+            <input
+              className="cursor-pointer"
+              type="radio"
+              name="option"
+              id="chars"
+              checked={selectedEnabled === 'chars'}
+              onChange={() => setSelectedEnabled('chars')}
+              value="chars"
+              aria-label="chars"
+            />
+            <label className="mx-2 my-0 cursor-pointer pd-0" htmlFor="chars">
+              Chars
+            </label>
+          </div>
         </div>
       </form>
     </>
