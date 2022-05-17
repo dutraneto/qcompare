@@ -56,7 +56,7 @@ function FormView() {
             id="textArea1"
             labelText="Original Copy"
             title="Paste the copy content"
-            placeholder="Paste the copy content here"
+            placeholder="Paste copy content here"
             name={string1}
             value={string1}
           />
@@ -64,7 +64,7 @@ function FormView() {
             id="textArea2"
             labelText="Second Copy"
             title="Paste a text to compare with copy"
-            placeholder="Paste the email content here"
+            placeholder="Paste email/LP content here"
             name={string2}
             value={string2}
           />
