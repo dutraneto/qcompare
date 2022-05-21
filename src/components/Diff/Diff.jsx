@@ -31,7 +31,7 @@ const Diff = ({ string1, string2, mode = 'words' }) => {
 
   const mappedNodesBefore = groups.map((group, index) => {
     let { value, added, removed } = group
-    console.log(value.split(' '))
+    console.log('split', value.split(' '))
     let nodeStyles = {}
     if (added) {
       value = null
@@ -54,7 +54,7 @@ const Diff = ({ string1, string2, mode = 'words' }) => {
               </span>
               {hasWhiteSpace(line) ? (
                 <span
-                  className={`font-bold bg-pink px-[6px] py-1 w-6 rounded-full hover:rounded-lg hover:p-2 text-xs hover:w-auto h-6 hover:h-auto overflow-hidden absolute right-2 bottom-2 cursor-pointer animate-pulse transition ease-in-out delay-75 duration-100 hover:animate-none hover:transition-all`}
+                  className={`font-bold bg-pink px-[5px] py-[6px] w-6 rounded-full hover:rounded-lg hover:p-2 text-xs hover:w-auto h-6 hover:h-auto overflow-hidden absolute right-2 bottom-2 cursor-pointer animate-pulse transition ease-in-out delay-75 duration-100 hover:animate-none hover:transition-all`}
                 >
                   <span>❗️</span>
                   <br />
@@ -107,7 +107,7 @@ const Diff = ({ string1, string2, mode = 'words' }) => {
               </span>
               {hasWhiteSpace(line) ? (
                 <span
-                  className={`font-bold bg-palegreen px-[6px] py-1 w-6 rounded-full hover:rounded-lg hover:p-2 text-xs hover:w-auto h-6 hover:h-auto overflow-hidden absolute right-2 bottom-2 cursor-pointer animate-pulse transition ease-in-out delay-75 duration-100 hover:animate-none hover:transition-all`}
+                  className={`font-bold bg-palegreen px-[5px] py-[6px] w-6 rounded-full hover:rounded-lg hover:p-2 text-xs hover:w-auto h-6 hover:h-auto overflow-hidden absolute right-2 bottom-2 cursor-pointer animate-pulse transition ease-in-out delay-75 duration-100 hover:animate-none hover:transition-all`}
                 >
                   <span>❗️</span>
                   <br />

@@ -1,4 +1,4 @@
-import Diff from './Diff'
+import Diff from '../Diff/Diff'
 import TextArea from './TextArea'
 import Button from './Button'
 import * as React from 'react'
