@@ -11,7 +11,7 @@ export default function TextArea(props) {
     <div className="flex-1 text-center relative">
       <label htmlFor={id}>{labelText}</label>
       <textarea
-        className={`w-full h-60 rounded text-base focus:outline-slate-400 resize-none`}
+        className={`w-full h-60 rounded text-base focus:outline-slate-400 resize-none whitespace-pre-wrap`}
         id={id}
         name={name}
         cols={30}

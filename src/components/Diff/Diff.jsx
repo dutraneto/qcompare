@@ -45,16 +45,15 @@ const Diff = ({ string1, string2, mode = 'words' }) => {
       const replacedValue = value.replace(/\r?\n/g, '\r\n')
       const emptyLines = []
       return replacedValue.split('\r\n').map((line) => {
+        const idx = uuidv1()
         if (line === '') {
           emptyLines.push(line)
-        }
-        const idx = uuidv1()
-        if (line != '') {
+        } else {
           return (
             <>
               <span
                 key={idx}
-                className={`lines font-mono text-base h-5 mb-1 ${nodeStyles.background} ${nodeStyles.color}  whitespace-pre-wrap break-words break-all`}
+                className={`lines font-mono text-base h-5 mb-1 ${nodeStyles.background} ${nodeStyles.color}  whitespace-pre-wrap`}
               >
                 {line}
               </span>
@@ -82,7 +81,7 @@ const Diff = ({ string1, string2, mode = 'words' }) => {
     return (
       <span
         key={group.id}
-        className={`lines font-mono text-base h-5 mb-1 ${nodeStyles.background} ${nodeStyles.color}  whitespace-pre-wrap break-words break-all`}
+        className={`lines font-mono text-base h-5 mb-1 ${nodeStyles.background} ${nodeStyles.color}  whitespace-pre-wrap`}
       >
         {value}
       </span>
@@ -103,16 +102,15 @@ const Diff = ({ string1, string2, mode = 'words' }) => {
       const replacedValue = value.replace(/\r?\n/g, '\r\n')
       const emptyLines = []
       return replacedValue.split('\r\n').map((line) => {
+        const idx = uuidv1()
         if (line === '') {
           emptyLines.push(line)
-        }
-        const idx = uuidv1()
-        if (line != '') {
+        } else {
           return (
             <>
               <span
                 key={idx}
-                className={`lines font-mono text-base h-5 mb-1 ${nodeStyles.background} ${nodeStyles.color}  whitespace-pre-wrap break-words break-all`}
+                className={`lines font-mono text-base h-5 mb-1 ${nodeStyles.background} ${nodeStyles.color}  whitespace-pre-wrap`}
               >
                 {line}
               </span>
@@ -142,7 +140,7 @@ const Diff = ({ string1, string2, mode = 'words' }) => {
     return (
       <span
         key={group.id}
-        className={`lines font-mono text-base h-5 mb-1 ${nodeStyles.background} ${nodeStyles.color}  whitespace-pre-wrap break-words break-all`}
+        className={`lines font-mono text-base h-5 mb-1 ${nodeStyles.background} ${nodeStyles.color}  whitespace-pre-wrap`}
       >
         {value}
       </span>
