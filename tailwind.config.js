@@ -24,7 +24,7 @@ module.exports = {
       'gray-200': 'rgb(248 250 252)',
       'gray-100': '#fafaf9',
       'gray-50': '#f7f7f7',
-      'slate-400': 'rgb(203 213 225)'
+      'slate-100': '#e5e7eb'
     },
     boxShadow: {
       'sm': '0 0 9px rgba(0,0,0, 0.11)'

@@ -1,9 +1,9 @@
-import useFetcher from '../../hooks/useFetcher'
+import useApi from '../../hooks/useApi'
 import Image from 'next/image'
 
 function Quote() {
   const url = 'https://api.quotable.io/random'
-  const { content, author, isLoading, isError } = useFetcher(url)
+  const { content, author, isLoading, isError } = useApi(url)
   // console.log(data)
   if (isLoading) return <p>loading ...</p>
   if (isError) return <p>Error fetching API</p>

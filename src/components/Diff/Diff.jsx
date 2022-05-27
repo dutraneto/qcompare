@@ -1,5 +1,6 @@
 import * as diff from 'diff'
 import * as React from 'react'
+import { v1 as uuidv1 } from 'uuid'
 
 const styles = {
   added: {
@@ -29,9 +30,10 @@ const Diff = ({ string1, string2, mode = 'words' }) => {
     return s.indexOf('  ') >= 0
   }
 
-  const mappedNodesBefore = groups.map((group, index) => {
+  const mappedNodesBefore = groups.map((group) => {
+    group.id = uuidv1()
     let { value, added, removed } = group
-    console.log('split', value.split(' '))
+    // console.log('split', value.split(' '))
     let nodeStyles = {}
     if (added) {
       value = null
@@ -39,16 +41,20 @@ const Diff = ({ string1, string2, mode = 'words' }) => {
     if (removed) {
       nodeStyles = { ...styles.added }
     }
-
     if (value !== null) {
       const replacedValue = value.replace(/\r?\n/g, '\r\n')
-      return replacedValue.split('\r\n').map((line, index) => {
+      const emptyLines = []
+      return replacedValue.split('\r\n').map((line) => {
+        if (line === '') {
+          emptyLines.push(line)
+        }
+        const idx = uuidv1()
         if (line != '') {
           return (
             <>
               <span
-                key={index}
-                className={`lines font-mono text-base h-5 mb-1 ${nodeStyles.background} ${nodeStyles.color} whitespace-pre-line`}
+                key={idx}
+                className={`lines font-mono text-base h-5 mb-1 ${nodeStyles.background} ${nodeStyles.color}  whitespace-pre-wrap break-words break-all`}
               >
                 {line}
               </span>
@@ -64,26 +70,27 @@ const Diff = ({ string1, string2, mode = 'words' }) => {
             </>
           )
         }
-        return (
-          line === '' && (
-            <div key={index} className={`mb-px h-4 bg-slate-400`} />
-          )
-        )
+        if (emptyLines.length === 0 || emptyLines === 1) {
+          return
+        } else {
+          for (let l = 0; l < emptyLines.length; l++) {
+            return <div key={idx} className={`mb-px h-4 bg-slate-100`} />
+          }
+        }
       })
     }
     return (
-      <>
-        <span
-          key={index}
-          className={`lines font-mono text-base h-5 mb-1 ${nodeStyles.background} ${nodeStyles.color} whitespace-pre-line`}
-        >
-          {value}
-        </span>
-      </>
+      <span
+        key={group.id}
+        className={`lines font-mono text-base h-5 mb-1 ${nodeStyles.background} ${nodeStyles.color}  whitespace-pre-wrap break-words break-all`}
+      >
+        {value}
+      </span>
     )
   })
 
-  const mappedNodesAfter = groups.map((group, index) => {
+  const mappedNodesAfter = groups.map((group) => {
+    group.id = uuidv1()
     let { value, added, removed } = group
     let nodeStyles = {}
     if (removed) {
@@ -92,16 +99,20 @@ const Diff = ({ string1, string2, mode = 'words' }) => {
     if (added) {
       nodeStyles = { ...styles.removed }
     }
-
     if (value !== null) {
       const replacedValue = value.replace(/\r?\n/g, '\r\n')
-      return replacedValue.split('\r\n').map((line, index) => {
+      const emptyLines = []
+      return replacedValue.split('\r\n').map((line) => {
+        if (line === '') {
+          emptyLines.push(line)
+        }
+        const idx = uuidv1()
         if (line != '') {
           return (
             <>
               <span
-                key={index}
-                className={`lines font-mono text-base h-5 mb-1 ${nodeStyles.background} ${nodeStyles.color} whitespace-pre-line`}
+                key={idx}
+                className={`lines font-mono text-base h-5 mb-1 ${nodeStyles.background} ${nodeStyles.color}  whitespace-pre-wrap break-words break-all`}
               >
                 {line}
               </span>
@@ -117,17 +128,21 @@ const Diff = ({ string1, string2, mode = 'words' }) => {
             </>
           )
         }
-        return (
-          line === '' && (
-            <div key={index} className={`mb-px h-4 bg-slate-400`} />
-          )
-        )
+        if (emptyLines.length === 0 || emptyLines === 1) {
+          console.log('0,1', emptyLines.length)
+          return
+        } else {
+          console.log('>1', emptyLines)
+          for (let l = 0; l < emptyLines.length; l++) {
+            return <div key={idx} className={`mb-px h-4 bg-slate-100`} />
+          }
+        }
       })
     }
     return (
       <span
-        key={index}
-        className={`lines font-mono text-base font-16 h-5 mb-1 ${nodeStyles.background} ${nodeStyles.color} whitespace-pre-line`}
+        key={group.id}
+        className={`lines font-mono text-base h-5 mb-1 ${nodeStyles.background} ${nodeStyles.color}  whitespace-pre-wrap break-words break-all`}
       >
         {value}
       </span>
