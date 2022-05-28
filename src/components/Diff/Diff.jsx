@@ -33,15 +33,14 @@ const Diff = ({ string1, string2, mode = 'words' }) => {
   const mappedNodesBefore = groups.map((group) => {
     group.id = uuidv1()
     let { value, added, removed } = group
-    // console.log('split', value.split(' '))
     let nodeStyles = {}
     if (added) {
-      value = null
+      value = undefined
     }
     if (removed) {
       nodeStyles = { ...styles.added }
     }
-    if (value !== null) {
+    if (value !== undefined) {
       const replacedValue = value.replace(/\r?\n/g, '\r\n')
       const emptyLines = []
       return replacedValue.split('\r\n').map((line) => {
@@ -93,12 +92,12 @@ const Diff = ({ string1, string2, mode = 'words' }) => {
     let { value, added, removed } = group
     let nodeStyles = {}
     if (removed) {
-      value = null
+      value = undefined
     }
     if (added) {
       nodeStyles = { ...styles.removed }
     }
-    if (value !== null) {
+    if (value !== undefined) {
       const replacedValue = value.replace(/\r?\n/g, '\r\n')
       const emptyLines = []
       return replacedValue.split('\r\n').map((line) => {
@@ -127,10 +126,8 @@ const Diff = ({ string1, string2, mode = 'words' }) => {
           )
         }
         if (emptyLines.length === 0 || emptyLines === 1) {
-          console.log('0,1', emptyLines.length)
           return
         } else {
-          console.log('>1', emptyLines)
           for (let l = 0; l < emptyLines.length; l++) {
             return <div key={idx} className={`mb-px h-4 bg-slate-100`} />
           }
