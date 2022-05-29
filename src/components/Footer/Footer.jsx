@@ -7,8 +7,14 @@ export default function Footer() {
         </div>
         <div className="text-center">
           Found an issue?{' '}
-          <a className="underline text-blue" href="mailto:jdutra@quarry.com">
-            Email Us
+          <a
+            className="underline text-blue"
+            href="https://forms.gle/vpuJbXaPKyzCzoZy5"
+            target="_blank"
+            rel="noopener noreferrer"
+            title="Send us your feedback"
+          >
+            Describe it to us
           </a>
         </div>
       </div>
