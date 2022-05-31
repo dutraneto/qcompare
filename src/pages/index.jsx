@@ -1,5 +1,19 @@
-import Main from 'components/Main'
+import Layout from 'components/Layout/Layout'
 
-export default function Home() {
-  return <Main />
+const localData = {
+  siteName: 'Qcompare',
+  logo: {
+    url: '/images/logo-eat2.png',
+    alt: 'Quarry Logo'
+  },
+  tooltip: {
+    iconUrl: '/images/icontip.svg',
+    title: 'Qcompare',
+    description:
+      'You just have to copy and paste your texts and click on the button. <br>Qcompare will find the difference between two texts'
+  }
+}
+
+export default function Index() {
+  return <Layout {...localData} />
 }

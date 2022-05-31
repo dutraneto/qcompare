@@ -1,16 +1,16 @@
 {
-  "name": "Boilerplate",
-  "short_name": "Boilerplate",
+  "name": "Qcompare",
+  "short_name": "Qcompare",
   "icons": [
     {
-      "src": "/images/favicon.png",
+      "src": "/images/favicon.ico",
       "type": "image/png",
       "sizes": "512x512"
     }
   ],
-  "background_color": "#06092B",
-  "description": "NextJS, React and Styled Components",
+  "background_color": "#FFD700",
+  "description": "Qcompare text app",
   "display": "fullscreen",
   "start_url": "/",
-  "theme_color": "#06092B"
+  "theme_color": "#9B41AF"
 }

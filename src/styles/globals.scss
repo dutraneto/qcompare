@@ -1,0 +1,108 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    @apply bg-white min-h-screen;
+  }
+  body, #__next {
+    @apply min-h-screen h-screen flex flex-col;
+  }
+  header, footer {
+    flex-grow: 0;
+  }
+  main {
+    flex-grow: 1;
+  }
+  h1 {
+    @apply text-5xl;
+  }
+  h2 {
+    @apply text-2xl pt-5 pb-3;
+  }
+  h3 {
+    @apply text-base pt-5 pb-3;
+  }
+  ul {
+    @apply list-disc pl-8;
+  }
+
+  a {
+    @apply no-underline relative;
+  }
+  a::after {
+    @apply absolute left-0 -bottom-1 w-0 h-0.5 transition-all ease-in-out duration-100;
+    content: '';
+  }
+  a:hover:after {
+    @apply w-full;
+  }
+
+  input,
+  textarea,
+ {
+    @apply border-2 p-4 border-gray-200 font-mono;
+
+  }
+
+  label {
+    @apply block mb-3;
+  }
+
+  del {
+    @apply bg-pink text-dark-red min-w-min w-2 min-h-full h-6 inline;
+  }
+
+  ins {
+    @apply bg-palegreen text-dark-green min-w-min w-2 min-h-full h-6 inline;
+  }
+}
+
+@layer components {
+  .link--no-decoration:hover:after {
+    display: none;
+  }
+  .bottom-decoration {
+    @apply relative;
+  }
+  .bottom-decoration::after {
+    @apply bg-yellow-400 absolute left-0 -bottom-1 w-full h-0.5 transition-all ease-in-out duration-100;
+    content: '';
+  }
+
+  .min-h-360 {
+    min-height: 30rem;
+  }
+
+  .min-h-720 {
+    min-height: 60rem;
+  }
+
+  .max-h-360 {
+    max-height: 30rem;
+  }
+
+  .max-h-720 {
+    max-height: 60rem;
+  }
+}
+
+.image-style-align-left {
+  @apply xl:float-left xl:mr-8;
+}
+
+.image-style-align-right {
+  @apply xl:float-right xl:ml-8;
+}
+
+// Rich Editor Overrides
+@layer {
+  @media screen and (max-width: 1024px) {
+    .image {
+      width: 100% !important;
+      margin-bottom: 1rem;
+    }
+  }
+}
