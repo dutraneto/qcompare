@@ -20,6 +20,7 @@ function Layout(props) {
         />
         <link rel="manifest" href="/manifest.json" />
         <meta name="description" content="QA app for Quarry" />
+        <meta name="theme-color" content="#FFD700" />
       </Head>
       <Header {...props.logo} siteName={props.siteName} />
       <Main {...props.tooltip} />
