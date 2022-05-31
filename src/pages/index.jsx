@@ -10,7 +10,7 @@ const localData = {
     iconUrl: '/images/icontip.svg',
     title: 'Qcompare',
     description:
-      'You just have to copy and paste your texts and click on the button. <br>Qcompare will find the difference between two texts'
+      'You just have to copy and paste your texts and click on the button. <br>Qcompare will find the difference between two texts.'
   }
 }
 
