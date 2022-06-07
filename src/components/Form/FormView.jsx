@@ -71,8 +71,14 @@ function FormView() {
         </div>
         <div className="text-center">
           <Button
+            buttonText={`Clear All`}
+            bgColor={`bg-transparent`}
+            style={`text-blue border`}
+          />
+          <Button
             buttonText={buttonState.initialText}
             bgColor={buttonState.bgColor}
+            style={`text-white`}
           />
         </div>
         <ul className="flex items-center gap-5 absolute -right-44 hover:right-0 bottom-0 bg-gray-200 p-px transition-all list-none">
