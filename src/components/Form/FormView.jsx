@@ -44,6 +44,14 @@ function FormView() {
     setButtonState(args)
   }
 
+  function handleClick(event) {
+    event.preventDefault()
+    event.target.form[0].value = ''
+    event.target.form[1].value = ''
+    setString1('')
+    setString2('')
+  }
+
   function diffView() {
     return <Diff string1={string1} string2={string2} mode={selectedEnabled} />
   }
@@ -73,7 +81,13 @@ function FormView() {
           <Button
             buttonText={`Clear All`}
             bgColor={`bg-transparent`}
-            style={`text-blue border`}
+            style={
+              !string1 && !string2
+                ? `text-slate-100 border`
+                : `text-blue border hover:bg-blue hover:text-white`
+            }
+            onClick={handleClick}
+            disabled={!string1 && !string2}
           />
           <Button
             buttonText={buttonState.initialText}
