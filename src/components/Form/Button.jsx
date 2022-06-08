@@ -1,11 +1,15 @@
 export default function Button(props) {
+  const { style, bgColor, buttonText, onClick } = props
   const styles = {
-    button:
-      'px-6 py-3 border-0 bg-transparent text-white pointer capitalize radius-4 text-center hover:opacity-90 rounded shadow-lg'
+    button: `px-6 py-3 pointer capitalize radius-4 text-center hover:opacity-90 rounded shadow-lg transition-all ${style}`
   }
   return (
-    <button className={`${styles.button} ${props.bgColor}`} type="submit">
-      {props.buttonText}
+    <button
+      className={`${styles.button} ${bgColor}`}
+      type="submit"
+      onClick={onClick}
+    >
+      {buttonText}
     </button>
   )
 }

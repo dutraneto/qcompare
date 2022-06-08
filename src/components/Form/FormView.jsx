@@ -44,6 +44,14 @@ function FormView() {
     setButtonState(args)
   }
 
+  function handleClick(event) {
+    event.preventDefault()
+    event.target.form[0].value = ''
+    event.target.form[1].value = ''
+    setString1('')
+    setString2('')
+  }
+
   function diffView() {
     return <Diff string1={string1} string2={string2} mode={selectedEnabled} />
   }
@@ -69,10 +77,22 @@ function FormView() {
             value={string2}
           />
         </div>
-        <div className="text-center">
+        <div className="flex justify-evenly relative">
+          <Button
+            buttonText={`Clear`}
+            bgColor={`bg-transparent`}
+            style={
+              !string1 && !string2
+                ? `text-slate-100 border absolute top-0 left-0 bottom-0`
+                : `text-blue border hover:bg-blue hover:text-white absolute top-0 left-0 bottom-0`
+            }
+            onClick={handleClick}
+            disabled={!string1 && !string2}
+          />
           <Button
             buttonText={buttonState.initialText}
             bgColor={buttonState.bgColor}
+            style={`text-white`}
           />
         </div>
         <ul className="flex items-center gap-5 absolute -right-44 hover:right-0 bottom-0 bg-gray-200 p-px transition-all list-none">
