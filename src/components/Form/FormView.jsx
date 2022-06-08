@@ -77,14 +77,14 @@ function FormView() {
             value={string2}
           />
         </div>
-        <div className="text-center">
+        <div className="flex justify-evenly relative">
           <Button
-            buttonText={`Clear All`}
+            buttonText={`Clear`}
             bgColor={`bg-transparent`}
             style={
               !string1 && !string2
-                ? `text-slate-100 border`
-                : `text-blue border hover:bg-blue hover:text-white`
+                ? `text-slate-100 border absolute top-0 left-0 bottom-0`
+                : `text-blue border hover:bg-blue hover:text-white absolute top-0 left-0 bottom-0`
             }
             onClick={handleClick}
             disabled={!string1 && !string2}
