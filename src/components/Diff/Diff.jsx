@@ -147,10 +147,13 @@ const Diff = ({ string1, string2, mode = 'words' }) => {
   return (
     <>
       <div className="flex gap-3 mb-12">
-        <div className="flex-1 bg-gray-200 p-4 relative">
+        <div className="flex-1 max-w-[50%] bg-gray-200 p-4 relative break-all">
           {mappedNodesBefore}
         </div>
-        <div div className="flex-1 bg-gray-200 p-4 relative">
+        <div
+          div
+          className="flex-1 max-w-[50%] bg-gray-200 p-4 relative break-all"
+        >
           {mappedNodesAfter}
         </div>
       </div>
