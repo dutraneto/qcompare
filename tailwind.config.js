@@ -2,6 +2,7 @@
 const defaultTheme = require('tailwindcss/defaultTheme')
 
 module.exports = {
+  darkMode: ['class', '[data-mode="dark"]'],
   content: ['./src/**/*.{vue,js,ts,jsx,tsx}'],
   theme: {
     fontFamily: {
@@ -10,6 +11,7 @@ module.exports = {
       mono: 'monospace'
     },
     colors: {
+      'black': '#282828',
       'white': '#FFFFFF',
       'red': '#FF0000',
       'orange': '#FF8700',
@@ -24,7 +26,8 @@ module.exports = {
       'gray-200': 'rgb(248 250 252)',
       'gray-100': '#fafaf9',
       'gray-50': '#f7f7f7',
-      'slate-100': '#e5e7eb'
+      'slate-100': '#e5e7eb',
+      'slate-900': 'rgb(15 23 42)'
     },
     boxShadow: {
       'sm': '0 0 9px rgba(0,0,0, 0.11)'

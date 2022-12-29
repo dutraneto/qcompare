@@ -1,9 +1,12 @@
 import Layout from 'components/Layout/Layout'
+import * as React from 'react'
+import { useTheme } from 'next-themes'
 
 const localData = {
   siteName: 'Qcompare',
   logo: {
-    url: '/images/logo-eat2.png',
+    eaurl: '/images/logo-eat2.png',
+    qurl: '/images/logo-quarry.png',
     alt: 'Quarry Logo'
   },
   tooltip: {
@@ -16,5 +19,16 @@ const localData = {
 }
 
 export default function Index() {
-  return <Layout {...localData} />
+  const { systemTheme, theme, setTheme } = useTheme()
+  const [mounted, setMounted] = React.useState(false)
+
+  React.useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  if (!mounted) return null
+  const currentTheme = theme === 'system' ? systemTheme : theme
+  return (
+    <Layout {...localData} currentTheme={currentTheme} setTheme={setTheme} />
+  )
 }

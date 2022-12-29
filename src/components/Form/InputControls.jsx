@@ -3,7 +3,7 @@ function InputControls({ selectedEnabled, setSelectedEnabled }) {
     <>
       <li className="flex items-baseline">
         <input
-          className="cursor-pointer"
+          className="cursor-pointer checked:dark:animate-pulse"
           type="radio"
           name="option"
           id="words"
@@ -14,7 +14,7 @@ function InputControls({ selectedEnabled, setSelectedEnabled }) {
           title="This option will check for double spaces if they exist"
         />
         <label
-          className="mx-2 my-0 cursor-pointer pd-0"
+          className="mx-2 my-0 cursor-pointer pd-0 dark:text-white"
           htmlFor="words"
           title="This option will check for double spaces if they exist"
         >
@@ -23,7 +23,7 @@ function InputControls({ selectedEnabled, setSelectedEnabled }) {
       </li>
       <li className="flex items-baseline">
         <input
-          className="cursor-pointer"
+          className="cursor-pointer checked:dark:animate-pulse"
           type="radio"
           name="option"
           id="chars"
@@ -34,7 +34,7 @@ function InputControls({ selectedEnabled, setSelectedEnabled }) {
           title="This option won't check for double spaces if they exist"
         />
         <label
-          className="mx-2 my-0 cursor-pointer pd-0"
+          className="mx-2 my-0 cursor-pointer pd-0 dark:text-white"
           htmlFor="chars"
           title="This option won't check for double spaces if they exist"
         >

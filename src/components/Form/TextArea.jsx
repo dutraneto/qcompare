@@ -9,9 +9,11 @@ export default function TextArea(props) {
 
   return (
     <div className="flex-1 text-center relative">
-      <label htmlFor={id}>{labelText}</label>
+      <label className="dark:text-white" htmlFor={id}>
+        {labelText}
+      </label>
       <textarea
-        className={`w-full h-60 rounded text-base focus:outline-slate-400 resize-none whitespace-pre-wrap break-all`}
+        className={`w-full h-60 rounded text-base focus:outline-slate-400 resize-none whitespace-pre-wrap break-all dark:bg-[#1E293B] dark:text-white`}
         id={id}
         name={name}
         cols={30}
