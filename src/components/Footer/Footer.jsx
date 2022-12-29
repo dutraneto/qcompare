@@ -1,6 +1,6 @@
 export default function Footer() {
   return (
-    <footer className="self-center mb-6">
+    <footer className="self-center mb-6 dark:bg-slate-900">
       <div>
         <div className="text-center dark:text-white">
           © 2022. Made with&nbsp;❤️&nbsp;&nbsp;by EA Team.
