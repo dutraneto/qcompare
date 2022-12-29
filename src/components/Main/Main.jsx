@@ -4,8 +4,8 @@ import FormView from '../Form/FormView'
 
 function Main(props) {
   return (
-    <main className="bg-white p-6">
-      <section className="flex gap-5  mb-5">
+    <main className="bg-white dark:bg-slate-900 p-6">
+      <section className="flex flex-col sm:flex-row gap-5  mb-5">
         <ToolTip {...props} />
         <Quote />
       </section>

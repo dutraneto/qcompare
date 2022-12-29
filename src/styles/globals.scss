@@ -8,7 +8,7 @@
     @apply bg-white min-h-screen;
   }
   body, #__next {
-    @apply min-h-screen h-screen flex flex-col;
+    @apply min-h-screen h-screen flex flex-col text-black;
   }
   header, footer {
     flex-grow: 0;
@@ -41,8 +41,7 @@
   }
 
   input,
-  textarea,
- {
+  textarea {
     @apply border-2 py-4 px-3.5 border-gray-200 font-mono;
 
   }
@@ -95,6 +94,20 @@
 
 .image-style-align-right {
   @apply xl:float-right xl:ml-8;
+}
+
+.animate-bounce {
+  animation: bounce 1s infinite;
+}
+@keyframes bounce {
+  0%, 100% {
+    transform: translateX(-25%);
+    animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+  }
+  50% {
+    transform: translateX(0);
+    animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  }
 }
 
 // Rich Editor Overrides
