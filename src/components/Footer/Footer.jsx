@@ -1,9 +1,11 @@
 export default function Footer() {
+  const year = new Date().getFullYear()
+
   return (
     <footer className="self-center mb-6 dark:bg-slate-900">
       <div>
         <div className="text-center dark:text-white">
-          © 2022. Made with&nbsp;❤️&nbsp;&nbsp;by EA Team.
+          © {year}. Made with&nbsp;❤️&nbsp;&nbsp;by EA Team.
         </div>
         <div className="text-center dark:text-white">
           Found an issue?{' '}
