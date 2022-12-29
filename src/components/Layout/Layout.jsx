@@ -22,7 +22,12 @@ function Layout(props) {
         <meta name="description" content="QA app for Quarry" />
         <meta name="theme-color" content="#FFD700" />
       </Head>
-      <Header {...props.logo} siteName={props.siteName} />
+      <Header
+        {...props.logo}
+        siteName={props.siteName}
+        currentTheme={props.currentTheme}
+        setTheme={props.setTheme}
+      />
       <Main {...props.tooltip} />
       <Footer />
     </>

@@ -15,7 +15,7 @@ const styles = {
 
 const Diff = ({ string1, string2, mode = 'words' }) => {
   const [groups, setGroups] = React.useState(diff.diffWords(string1, string2))
-  console.log(groups)
+
   React.useEffect(() => {
     window.diff = diff
     if (mode === 'words') {
@@ -58,7 +58,7 @@ const Diff = ({ string1, string2, mode = 'words' }) => {
               </span>
               {hasWhiteSpace(line) ? (
                 <span
-                  className={`font-bold bg-pink px-[5px] py-[6px] w-6 rounded-full hover:rounded-lg hover:p-2 text-xs hover:w-auto h-6 hover:h-auto overflow-hidden absolute right-2 bottom-2 cursor-pointer animate-pulse transition ease-in-out delay-75 duration-100 hover:animate-none hover:transition-all`}
+                  className={`font-bold bg-pink px-[6px] py-[5px] w-6 h-6 rounded-full hover:rounded-lg hover:p-2 text-xs hover:w-auto hover:h-auto overflow-hidden absolute right-2 bottom-2 cursor-pointer animate-pulse transition ease-in-out delay-75 duration-100 hover:animate-none hover:transition-all dark:text-black`}
                 >
                   <span>❗️</span>
                   <br />
@@ -72,7 +72,12 @@ const Diff = ({ string1, string2, mode = 'words' }) => {
           return
         } else {
           for (let l = 0; l < emptyLines.length; l++) {
-            return <div key={idx} className={`mb-px h-4 bg-slate-100`} />
+            return (
+              <div
+                key={idx}
+                className={`mb-px h-4 bg-slate-100 dark:bg-slate-700 animate-pulse`}
+              />
+            )
           }
         }
       })
@@ -115,7 +120,7 @@ const Diff = ({ string1, string2, mode = 'words' }) => {
               </span>
               {hasWhiteSpace(line) ? (
                 <span
-                  className={`font-bold bg-palegreen px-[5px] py-[6px] w-6 rounded-full hover:rounded-lg hover:p-2 text-xs hover:w-auto h-6 hover:h-auto overflow-hidden absolute right-2 bottom-2 cursor-pointer animate-pulse transition ease-in-out delay-75 duration-100 hover:animate-none hover:transition-all`}
+                  className={`font-bold bg-palegreen px-[6px] py-[5px] w-6 rounded-full hover:rounded-lg hover:p-2 text-xs hover:w-auto h-6 hover:h-auto overflow-hidden absolute right-2 bottom-2 cursor-pointer animate-pulse transition ease-in-out delay-75 duration-100 hover:animate-none hover:transition-all dark:text-black`}
                 >
                   <span>❗️</span>
                   <br />
@@ -129,7 +134,12 @@ const Diff = ({ string1, string2, mode = 'words' }) => {
           return
         } else {
           for (let l = 0; l < emptyLines.length; l++) {
-            return <div key={idx} className={`mb-px h-4 bg-slate-100`} />
+            return (
+              <div
+                key={idx}
+                className={`mb-px h-4 bg-slate-100 dark:bg-slate-700 animate-pulse`}
+              />
+            )
           }
         }
       })
@@ -147,12 +157,12 @@ const Diff = ({ string1, string2, mode = 'words' }) => {
   return (
     <>
       <div className="flex gap-3 mb-12">
-        <div className="flex-1 max-w-[50%] bg-gray-200 p-4 relative break-all">
+        <div className="flex-1 max-w-[50%] bg-gray-200 dark:bg-[#1E293B] dark:text-white p-4 relative break-all">
           {mappedNodesBefore}
         </div>
         <div
           div
-          className="flex-1 max-w-[50%] bg-gray-200 p-4 relative break-all"
+          className="flex-1 max-w-[50%] bg-gray-200 dark:bg-[#1E293B] dark:text-white p-4 relative break-all"
         >
           {mappedNodesAfter}
         </div>
