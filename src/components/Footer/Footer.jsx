@@ -2,7 +2,7 @@ export default function Footer() {
   const year = new Date().getFullYear()
 
   return (
-    <footer className="self-center mb-6 dark:bg-slate-900">
+    <footer className="d-flex w-full self-center pb-6 dark:bg-slate-900">
       <div>
         <div className="text-center dark:text-white">
           © {year}. Made with&nbsp;❤️&nbsp;&nbsp;by EA Team.
