@@ -58,11 +58,10 @@ const Diff = ({ string1, string2, mode = 'words' }) => {
               </span>
               {hasWhiteSpace(line) ? (
                 <span
-                  className={`font-bold bg-pink px-[6px] py-[5px] w-6 h-6 rounded-full hover:rounded-lg hover:p-2 text-xs hover:w-auto hover:h-auto overflow-hidden absolute right-2 bottom-2 cursor-pointer animate-pulse transition ease-in-out delay-75 duration-100 hover:animate-none hover:transition-all dark:text-black`}
+                  className={`font-bold bg-pink px-[6px] py-[5px] w-6 h-6 rounded-l-full text-xs w-auto h-auto overflow-hidden absolute -right-[160px] hover:right-0 bottom-2 cursor-pointer animate-pulse transition ease-in-out delay-75 duration-100 hover:animate-none hover:transition-all dark:text-black`}
                 >
                   <span>❗️</span>
-                  <br />
-                  Check for double spaces
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Check for double spaces
                 </span>
               ) : null}
             </>
@@ -120,11 +119,10 @@ const Diff = ({ string1, string2, mode = 'words' }) => {
               </span>
               {hasWhiteSpace(line) ? (
                 <span
-                  className={`font-bold bg-palegreen px-[6px] py-[5px] w-6 rounded-full hover:rounded-lg hover:p-2 text-xs hover:w-auto h-6 hover:h-auto overflow-hidden absolute right-2 bottom-2 cursor-pointer animate-pulse transition ease-in-out delay-75 duration-100 hover:animate-none hover:transition-all dark:text-black`}
+                  className={`font-bold bg-palegreen px-[6px] py-[5px] w-6 rounded-l-full text-xs w-auto h-auto overflow-hidden absolute -right-[160px] hover:right-0 bottom-2 cursor-pointer animate-pulse transition ease-in-out delay-75 duration-100 hover:animate-none hover:transition-all dark:text-black`}
                 >
                   <span>❗️</span>
-                  <br />
-                  Check for double spaces
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Check for double spaces
                 </span>
               ) : null}
             </>
@@ -156,14 +154,11 @@ const Diff = ({ string1, string2, mode = 'words' }) => {
 
   return (
     <>
-      <div className="flex gap-3 mb-12">
-        <div className="flex-1 max-w-[50%] bg-gray-200 dark:bg-[#1E293B] dark:text-white p-4 relative break-all">
+      <div className="flex gap-3 mb-12 ">
+        <div className="flex-1 max-w-[50%] bg-gray-200 dark:bg-[#1E293B] dark:text-white p-4 relative break-all overflow-hidden">
           {mappedNodesBefore}
         </div>
-        <div
-          div
-          className="flex-1 max-w-[50%] bg-gray-200 dark:bg-[#1E293B] dark:text-white p-4 relative break-all"
-        >
+        <div className="flex-1 max-w-[50%] bg-gray-200 dark:bg-[#1E293B] dark:text-white p-4 relative break-all overflow-hidden">
           {mappedNodesAfter}
         </div>
       </div>
