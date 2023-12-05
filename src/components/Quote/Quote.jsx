@@ -22,8 +22,8 @@ const QuoteWrapper = ({ content, author }) => (
   </div>
 )
 function Quote() {
-  const url = 'https://api.quotable.io/random'
-  const { content, author, isLoading, isError } = useApi(url)
+  const url = 'https://official-joke-api.appspot.com/random_joke'
+  const { setup, punchline, isLoading, isError } = useApi(url)
   if (isLoading)
     return <QuoteWrapper content={'Loading...'} author={'Loading...'} />
   if (isError)
@@ -33,7 +33,7 @@ function Quote() {
         author={'Error Fetching API'}
       />
     )
-  return <QuoteWrapper content={content} author={author} />
+  return <QuoteWrapper content={setup} author={punchline} />
 }
 
 export default Quote

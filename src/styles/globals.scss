@@ -60,6 +60,11 @@
 }
 
 @layer components {
+  .canvas {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
   .link--no-decoration:hover:after {
     display: none;
   }
