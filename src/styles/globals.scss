@@ -3,6 +3,9 @@
 @tailwind utilities;
 
 @layer base {
+  * {
+    min-width: 0;
+  }
   html {
     scroll-behavior: smooth;
     @apply bg-white min-h-screen;
