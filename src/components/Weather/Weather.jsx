@@ -1,7 +1,7 @@
 import useApi from '../../hooks/useApi'
 import Image from 'next/image'
 
-const QuoteWrapper = ({ name, sys, main, weather: {...weather } }) => {
+const WeatherWrapper = ({ name, sys, main, weather: {...weather } }) => {
 
   const country = sys?.country
   const temp = main?.temp
@@ -32,7 +32,7 @@ const QuoteWrapper = ({ name, sys, main, weather: {...weather } }) => {
   )
 }
 
-function Quote() {
+function Weather() {
   const ip = `https://ipinfo.io/json?token=${process.env.NEXT_PUBLIC_IP_LOOKUP_API}`
   const { loc, isLoading, isError } = useApi(ip)
   const lat = loc?.split(',')[0]
@@ -44,7 +44,7 @@ function Quote() {
     return <>...Loading</>
   if (isError)
     return <>Error Fetching API</>
-  return <QuoteWrapper {...weatherResponse}/>
+  return <WeatherWrapper {...weatherResponse}/>
 }
 
-export default Quote
+export default Weather
