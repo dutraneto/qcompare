@@ -63,16 +63,16 @@ function FormView() {
           <TextArea
             id="textArea1"
             labelText="Original Copy"
-            title="Paste the copy content"
-            placeholder="Paste copy content here"
+            title="Insert Original Text Here"
+            placeholder="Insert Original Text Here"
             name={string1}
             value={string1}
           />
           <TextArea
             id="textArea2"
             labelText="Second Copy"
-            title="Paste a text to compare with copy"
-            placeholder="Paste email/LP content here"
+            title="Insert Second Text Here"
+            placeholder="Insert Second Text Here"
             name={string2}
             value={string2}
           />
