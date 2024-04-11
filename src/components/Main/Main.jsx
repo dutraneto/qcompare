@@ -12,7 +12,7 @@ function Main(props) {
           <ToolTip {...props} />
           <Weather />
         </section>
-        <section className="py-6 px-3 mb-5 shadow-sm rounded">
+        <section className="py-6 mb-5 shadow-sm rounded">
           <FormView />
         </section>
       </main>

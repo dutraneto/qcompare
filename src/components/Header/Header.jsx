@@ -4,28 +4,24 @@ import Image from 'next/image'
 import * as React from 'react'
 
 function Header(props) {
-  const { eaurl, qurl, alt, currentTheme } = props
-  const [url, setUrl] = React.useState(qurl)
+  const { eaurl, alt, currentTheme } = props
   const isDarkMode = currentTheme === 'dark'
   const styles = {
     header:
-      'bg-gray-50 p-6 flex items-end justify-between items-end dark:bg-[#0F172A]',
+      'bg-gray-50 p-6 flex items-end justify-between items-center dark:bg-[#0F172A]',
     fluid: 'fluid',
     h1: 'text-lg font-bold ml-4'
   }
-  React.useEffect(() => {
-    !isDarkMode ? setUrl(eaurl) : setUrl(qurl)
-  }, [eaurl, isDarkMode, qurl])
 
   return (
     <header className={styles.header}>
       <Link href={`/ `}>
-        <a className="h-10">
-          {url && (
+        <a className="h-auto w-100">
+          {eaurl && (
             <Image
-              src={url}
-              width={isDarkMode ? 150 : 150}
-              height={60}
+              src={eaurl}
+              width={isDarkMode ? 140 : 140}
+              height={54}
               alt={alt}
               className={styles.fluid}
             />
