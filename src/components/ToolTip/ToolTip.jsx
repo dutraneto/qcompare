@@ -9,7 +9,9 @@ function ToolTip({ iconUrl, title, description }) {
         {/* <Image src={iconChristmas} width={170} height={171} /> */}
       </div>
       <div className="z-50" style={{ color: 'black' }}>
-        <h4 className="text-xl font-bold text-black dark:text-white">{title}</h4>
+        <h4 className="text-xl font-bold text-black dark:text-white">
+          {title}
+        </h4>
         <p
           className="text-black dark:text-white"
           dangerouslySetInnerHTML={{
