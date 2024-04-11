@@ -17,19 +17,19 @@ function FormView() {
   React.useEffect(() => {
     if (string1 === '' && string2 === '') {
       stateOfButton({
-        initialText: 'Compare Text',
+        initialText: 'Analyze Differences',
         bgColor: 'bg-blue'
       })
       return
     } else if (string1 === string2) {
       stateOfButton({
-        initialText: 'Texts are Identical',
+        initialText: 'Texts Match',
         bgColor: 'bg-green'
       })
       confetti()
     } else
       stateOfButton({
-        initialText: 'Texts are Different',
+        initialText: 'Texts Differ',
         bgColor: 'bg-red'
       })
   }, [string1, string2, selectedEnabled])
