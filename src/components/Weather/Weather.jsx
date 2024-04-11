@@ -6,7 +6,6 @@ const WeatherWrapper = ({ name, sys, main, weather: { ...weather } }) => {
   const temp = main?.temp
   const tempC = Math.round(temp - 273.15)
   const weatherIdx = weather[0]
-  console.log(weather[0])
 
   return (
     <div className="p-6 flex sm:items-end lg:items-center relative z-1 w-full sm:w-2/5 overflow-hidden rounded">
@@ -44,6 +43,7 @@ const WeatherWrapper = ({ name, sys, main, weather: { ...weather } }) => {
 function Weather() {
   const ip = `https://ipinfo.io/json?token=${process.env.NEXT_PUBLIC_IP_LOOKUP_API}`
   const { loc, isLoading, isError } = useApi(ip)
+  console.log(loc)
   const lat = loc?.split(',')[0]
   const lon = loc?.split(',')[1]
   const weatherApiUrl = 'https://api.openweathermap.org/data/2.5/weather'
