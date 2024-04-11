@@ -10,11 +10,11 @@ const localData = {
     alt: 'Quarry Logo'
   },
   tooltip: {
-    iconUrl: '/images/icontip.svg',
+    iconUrl: '/images/icon-new.svg',
     iconChristmas: '/images/icontip-christmas.svg',
     title: 'Qcompare',
     description:
-      'You just have to copy and paste your texts and click on the button. <br>Qcompare will find the difference between two texts.'
+      'Simply copy and paste your texts, then let the app do the rest with a single click.<br> Discover the nuances and variations between two texts effortlessly.'
   }
 }
 
