@@ -24,8 +24,8 @@ function Header(props) {
           {url && (
             <Image
               src={url}
-              width={isDarkMode ? 36 : 150}
-              height={40}
+              width={isDarkMode ? 150 : 150}
+              height={60}
               alt={alt}
               className={styles.fluid}
             />
