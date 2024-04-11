@@ -17,19 +17,19 @@ function FormView() {
   React.useEffect(() => {
     if (string1 === '' && string2 === '') {
       stateOfButton({
-        initialText: 'Compare Text',
+        initialText: 'Analyze Differences',
         bgColor: 'bg-blue'
       })
       return
     } else if (string1 === string2) {
       stateOfButton({
-        initialText: 'Texts are Identical',
+        initialText: 'Texts Match',
         bgColor: 'bg-green'
       })
       confetti()
     } else
       stateOfButton({
-        initialText: 'Texts are Different',
+        initialText: 'Texts Differ',
         bgColor: 'bg-red'
       })
   }, [string1, string2, selectedEnabled])
@@ -63,16 +63,16 @@ function FormView() {
           <TextArea
             id="textArea1"
             labelText="Original Copy"
-            title="Paste the copy content"
-            placeholder="Paste copy content here"
+            title="Insert Original Text Here"
+            placeholder="Insert Original Text Here"
             name={string1}
             value={string1}
           />
           <TextArea
             id="textArea2"
             labelText="Second Copy"
-            title="Paste a text to compare with copy"
-            placeholder="Paste email/LP content here"
+            title="Insert Second Text Here"
+            placeholder="Insert Second Text Here"
             name={string2}
             value={string2}
           />
