@@ -5,14 +5,8 @@ import { useTheme } from 'next-themes'
 const localData = {
   siteName: 'Qcompare',
   logo: {
-<<<<<<< HEAD
     src: '/images/icon-new.svg',
     alt: 'Qcompare Logo'
-=======
-    eaurl: '/images/logo-eat.svg',
-    qurl: '/images/logo-eat.svg',
-    alt: 'Quarry Logo'
->>>>>>> master
   },
   tooltip: {
     iconUrl: '/images/icon-new.svg',
