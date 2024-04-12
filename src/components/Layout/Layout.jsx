@@ -10,16 +10,16 @@ function Layout(props) {
         <title>{props.siteName}</title>
         <link
           rel="shortcut icon"
-          href="/images/favicon-152px.png"
+          href="/images/apple-touch-icon.png"
           type="image/x-icon"
         />
         <link
           rel="apple-touch-icon"
-          href="/images/favicon-152px.png"
+          href="/images/apple-touch-icon.png"
           type="image/x-icon"
         />
         <link rel="manifest" href="/manifest.json" />
-        <meta name="description" content="QA app for Quarry" />
+        <meta name="description" content="QA app" />
         <meta name="theme-color" content="#FFD700" />
       </Head>
       <Header
