@@ -4,7 +4,7 @@ import Image from 'next/image'
 import * as React from 'react'
 
 function Header(props) {
-  const { eaurl, alt, currentTheme } = props
+  const { src, alt, currentTheme } = props
   const isDarkMode = currentTheme === 'dark'
   const styles = {
     header:
@@ -15,13 +15,13 @@ function Header(props) {
 
   return (
     <header className={styles.header}>
-      <Link href={`/ `}>
-        <a className="h-auto w-100">
-          {eaurl && (
+      <Link href={`https://github.com/dutraneto`}>
+        <a className="h-auto w-100" target="_blank">
+          {src && (
             <Image
-              src={eaurl}
-              width={isDarkMode ? 140 : 140}
-              height={54}
+              src={src}
+              width={80}
+              height={80}
               alt={alt}
               className={styles.fluid}
             />

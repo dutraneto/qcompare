@@ -43,7 +43,6 @@ const WeatherWrapper = ({ name, sys, main, weather: { ...weather } }) => {
 function Weather() {
   const ip = `https://ipinfo.io/json?token=${process.env.NEXT_PUBLIC_IP_LOOKUP_API}`
   const { loc, isLoading, isError } = useApi(ip)
-  console.log(loc)
   const lat = loc?.split(',')[0]
   const lon = loc?.split(',')[1]
   const weatherApiUrl = 'https://api.openweathermap.org/data/2.5/weather'
