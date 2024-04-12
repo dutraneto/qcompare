@@ -4,8 +4,7 @@ import Image from 'next/image'
 import * as React from 'react'
 
 function Header(props) {
-  const { src, alt, currentTheme } = props
-  const isDarkMode = currentTheme === 'dark'
+  const { src, alt } = props
   const styles = {
     header:
       'bg-gray-50 p-6 flex items-end justify-between items-center dark:bg-[#0F172A]',

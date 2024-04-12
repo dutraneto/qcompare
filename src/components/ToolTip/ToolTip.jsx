@@ -1,5 +1,3 @@
-import Image from 'next/image'
-
 function ToolTip({ title, description }) {
   return (
     <div className="p-6 flex sm:items-end lg:items-center relative z-1 w-full sm:w-3/5 gap-5 rounded">
