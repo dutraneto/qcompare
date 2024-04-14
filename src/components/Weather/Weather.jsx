@@ -1,4 +1,3 @@
-import useApi from '../../hooks/useApi'
 import Image from 'next/image'
 
 function Weather(props) {

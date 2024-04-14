@@ -2,17 +2,16 @@
 // Getting Data
 // @see https://nextjs.org/docs/basic-features/data-fetching#incremental-static-regeneration
 //
+import fetcher from './fetcher.js'
 
-export async function getData() {
-  const ipApiURL = `https://ipinfo.io/json?token=${process.env.NEXT_PUBLIC_IP_LOOKUP_API}`
-  const ipResponse = await fetch(ipApiURL)
-  const ip = await ipResponse.json()
+export async function getData(...args) {
+  const ipApiURL = `${args[0]}${args[1]}`
+  const ip = await fetcher(ipApiURL)
 
   const [lat, lon] = ip.loc.split(',')
 
-  const weatherApiUrl = 'https://api.openweathermap.org/data/2.5/weather'
-  const weatherEndpoint = `${weatherApiUrl}?lat=${lat}&lon=${lon}&appid=${process.env.NEXT_PUBLIC_WEATHER_API}`
-  const weatherApiRes = await fetch(weatherEndpoint)
-  const weather = await weatherApiRes.json()
+  const weatherEndpoint = `${args[2]}?lat=${lat}&lon=${lon}&appid=${args[3]}`
+  const weather = await fetcher(weatherEndpoint)
+  console.log(weather)
   return weather
 }
