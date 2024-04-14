@@ -4,7 +4,10 @@ import Image from 'next/image'
 const WeatherWrapper = ({ name, sys, main, weather: { ...weather } }) => {
   const country = sys?.country
   const temp = main?.temp
+  console.log(sys)
+  // Has to be fixed
   const tempC = Math.round(temp - 273.15)
+  console.log(typeof tempC)
   const weatherIdx = weather[0]
 
   return (
@@ -20,7 +23,7 @@ const WeatherWrapper = ({ name, sys, main, weather: { ...weather } }) => {
             .
           </p>
           <p className="text-black dark:text-blue">
-            It‘s <strong>{tempC} ºC</strong> over there!
+            It‘s <strong>{tempC ? tempC : '🌡️'} ºC</strong> over there!
           </p>
         </div>
         <div className="flex flex-col items-center">
