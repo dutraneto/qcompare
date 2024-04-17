@@ -11,6 +11,8 @@ export default class MyDocument extends Document {
     return (
       <Html lang="en">
         <Head>
+          <link rel="manifest" href="/manifest.json" />
+          <link rel="apple-touch-icon" href="/apple-touch-icon-q.png" />
           <link rel="dns-fetch" href="https://maps.googleapis.com" />
           <link rel="preconnect" href="https://fonts.gstatic.com" />
           <link

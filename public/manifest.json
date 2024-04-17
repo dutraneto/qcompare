@@ -3,7 +3,7 @@
   "short_name": "Qcompare",
   "icons": [
     {
-      "src": "/images/apple-touch-icon.png",
+      "src": "/images/apple-touch-icon-q.png",
       "type": "image/png",
       "sizes": "152x152",
       "purpose": "any"
