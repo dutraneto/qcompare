@@ -12,6 +12,5 @@ export async function getData(...args) {
 
   const weatherEndpoint = `${args[2]}?lat=${lat}&lon=${lon}&appid=${args[3]}`
   const weather = await fetcher(weatherEndpoint)
-  console.log(weather)
   return weather
 }

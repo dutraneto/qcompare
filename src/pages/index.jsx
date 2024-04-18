@@ -2,26 +2,14 @@ import Layout from 'components/Layout/Layout'
 import * as React from 'react'
 import { useTheme } from 'next-themes'
 import { getData } from '../lib/getData'
-
-const localData = {
-  siteName: 'Qcompare',
-  logo: {
-    src: '/images/icon-new.svg',
-    alt: 'Qcompare Logo'
-  },
-  tooltip: {
-    iconUrl: '/images/icon-new.svg',
-    iconChristmas: '/images/icontip-christmas.svg',
-    title: 'Qcompare',
-    description:
-      'Simply copy and paste your texts, then let the app do the rest with a single click.<br> Discover the nuances and variations between two texts effortlessly.'
-  }
-}
+import { localData } from './api/localData'
 
 export default function Index(props) {
+  // Dark mode
   const { systemTheme, theme, setTheme } = useTheme()
   const [mounted, setMounted] = React.useState(false)
 
+  // Data props
   const { localData, weatherData } = props
   const city = weatherData?.name
   const country = weatherData?.sys?.country
