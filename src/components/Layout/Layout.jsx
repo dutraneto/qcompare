@@ -28,7 +28,7 @@ function Layout(props) {
         currentTheme={props.currentTheme}
         setTheme={props.setTheme}
       />
-      <Main {...props.tooltip} {...props.weatherProps} />
+      <Main toolTip={props.tooltip} weatherProps={props.weatherProps} />
       <Footer />
     </>
   )
