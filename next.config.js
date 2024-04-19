@@ -12,8 +12,8 @@ module.exports = withPWA({
     domains: ['res.cloudinary.com', 'www.quarry.com', 'openweathermap.org']
   },
   pwa: {
-    dest: 'public',
-    disable: !isProd,
-    runtimeCaching
+    register: true,
+    skipWaiting: true,
+    disable: process.env.NODE_ENV === 'development'
   }
 })
