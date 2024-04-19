@@ -15,7 +15,7 @@ export default function Index(props) {
   const country = weatherData?.sys?.country
   const temp = weatherData?.main?.temp
   const tempC = Math.round(temp - 273.15)
-  const weatherIdx = weatherData?.weather[0]
+  const weatherIdx = weatherData?.weather ? weatherData?.weather[0] : null
   const weatherDesc = weatherIdx?.description
   const weatherIcon = weatherIdx?.icon
   const weatherProps = { city, country, tempC, weatherDesc, weatherIcon }
