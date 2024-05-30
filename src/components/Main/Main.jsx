@@ -4,13 +4,16 @@ import FormView from '../Form/FormView'
 // import Canvas from 'components/Canvas/Canvas'
 
 function Main(props) {
+  const { toolTip, weatherProps } = props
+  const { title, description } = toolTip
+
   return (
     <>
       {/* <Canvas /> */}
       <main className="bg-white dark:bg-slate-900 p-6">
         <section className="flex flex-col sm:flex-row gap-5  mb-5">
-          <ToolTip {...props} />
-          <Weather />
+          <ToolTip title={title} description={description} />
+          <Weather {...weatherProps} />
         </section>
         <section className="py-6 px-3 mb-5 shadow-sm rounded">
           <FormView />

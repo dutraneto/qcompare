@@ -1,25 +1,24 @@
 import Layout from 'components/Layout/Layout'
 import * as React from 'react'
 import { useTheme } from 'next-themes'
+import { getData } from '../lib/getData'
+import { localData } from './api/localData'
 
-const localData = {
-  siteName: 'Qcompare',
-  logo: {
-    src: '/images/icon-new.svg',
-    alt: 'Qcompare Logo'
-  },
-  tooltip: {
-    iconUrl: '/images/icon-new.svg',
-    iconChristmas: '/images/icontip-christmas.svg',
-    title: 'Qcompare',
-    description:
-      'Simply copy and paste your texts, then let the app do the rest with a single click.<br> Discover the nuances and variations between two texts effortlessly.'
-  }
-}
-
-export default function Index() {
+export default function Index(props) {
+  // Dark mode
   const { systemTheme, theme, setTheme } = useTheme()
   const [mounted, setMounted] = React.useState(false)
+
+  // Data props
+  const { localData, weatherData } = props
+  const city = weatherData?.name
+  const country = weatherData?.sys?.country
+  const temp = weatherData?.main?.temp
+  const tempC = Math.round(temp - 273.15)
+  const weatherIdx = weatherData?.weather ? weatherData?.weather[0] : null
+  const weatherDesc = weatherIdx?.description
+  const weatherIcon = weatherIdx?.icon
+  const weatherProps = { city, country, tempC, weatherDesc, weatherIcon }
 
   React.useEffect(() => {
     setMounted(true)
@@ -28,6 +27,28 @@ export default function Index() {
   if (!mounted) return null
   const currentTheme = theme === 'system' ? systemTheme : theme
   return (
-    <Layout {...localData} currentTheme={currentTheme} setTheme={setTheme} />
+    <Layout
+      {...localData}
+      weatherProps={weatherProps}
+      currentTheme={currentTheme}
+      setTheme={setTheme}
+    />
   )
+}
+
+export async function getStaticProps() {
+  const weatherData =
+    (await getData(
+      'https://ipinfo.io/json?token=',
+      process.env.NEXT_PUBLIC_IP_LOOKUP_API,
+      'https://api.openweathermap.org/data/2.5/weather',
+      process.env.NEXT_PUBLIC_WEATHER_API
+    )) || {}
+
+  return {
+    props: {
+      localData,
+      weatherData
+    }
+  }
 }
