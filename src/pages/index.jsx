@@ -39,7 +39,7 @@ export default function Index(props) {
 export async function getStaticProps() {
   const weatherData =
     (await getData(
-      'https://ipinfo.io/json?token=',
+      'https://ipinfo.io?token=',
       process.env.NEXT_PUBLIC_IP_LOOKUP_API,
       'https://api.openweathermap.org/data/2.5/weather',
       process.env.NEXT_PUBLIC_WEATHER_API
