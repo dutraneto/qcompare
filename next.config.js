@@ -1,6 +1,7 @@
 /* eslint-disable no-undef */
 const withPWA = require('@imbios/next-pwa')({
-  dest: 'public'
+  dest: 'public',
+  mode: 'production'
 })
 const runtimeCaching = require('@imbios/next-pwa')
 const isProd = process.env.NODE_ENV === 'production'
@@ -9,11 +10,6 @@ const isProd = process.env.NODE_ENV === 'production'
 module.exports = withPWA({
   reactStrictMode: true,
   images: {
-    domains: ['res.cloudinary.com', 'www.quarry.com', 'openweathermap.org']
-  },
-  pwa: {
-    register: true,
-    skipWaiting: true,
-    disable: process.env.NODE_ENV === 'development'
+    domains: ['res.cloudinary.com', 'openweathermap.org', 'ipinfo.io']
   }
 })
