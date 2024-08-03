@@ -1,7 +1,49 @@
 import Image from 'next/image'
+import { useEffect, useState } from 'react'
 
-function Weather(props) {
-  const { city, country, tempC, weatherDesc, weatherIcon } = props
+function Weather() {
+  const [ipData, setIpData] = useState({})
+  const [weatherData, setWeatherData] = useState({})
+  const [isLoading, setIsLoading] = useState(true)
+
+  useEffect(() => {
+    const ipApiUrl = `https://api.ipdata.co?api-key=f4de74b79a572660bfccd13422ecbde03ff3efed85d1c65473b599e2`
+    fetch(ipApiUrl)
+      .then((response) => {
+        if (!response.ok) throw new Error('Invalid api call')
+        return response.json()
+      })
+      .then((ipData) => {
+        setIpData(ipData)
+        const { latitude, longitude } = ipData
+        const weatherApiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${process.env.NEXT_PUBLIC_WEATHER_API}`
+        return fetch(weatherApiUrl)
+      })
+      .then((response) => {
+        if (!response.ok) throw new Error('Invalid api call')
+        return response.json()
+      })
+      .then((weatherData) => {
+        setWeatherData(weatherData)
+        setIsLoading(false)
+        return weatherData
+      })
+      .catch((error) => {
+        console.error('Fetch error:', error)
+      })
+  }, [])
+
+  const city = weatherData?.name
+  const country = weatherData?.sys?.country
+  const temp = weatherData?.main?.temp
+  const tempC = Math.round(temp - 273.15)
+  const weatherIdx = weatherData?.weather ? weatherData?.weather[0] : null
+  const weatherDesc = weatherIdx?.description
+  const weatherIcon = weatherIdx?.icon
+
+  if (isLoading) return <p>Loading...</p>
+  if (!weatherData) return <p>No profile data</p>
+
   return (
     <WeatherWrapper
       city={city}
