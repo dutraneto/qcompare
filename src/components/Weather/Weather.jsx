@@ -7,7 +7,7 @@ function Weather() {
   const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
-    const ipApiUrl = `https://api.ipdata.co?api-key=f4de74b79a572660bfccd13422ecbde03ff3efed85d1c65473b599e2`
+    const ipApiUrl = `https://api.ipdata.co?api-key=${process.env.NEXT_PUBLIC_IP_LOOKUP_API}`
     fetch(ipApiUrl)
       .then((response) => {
         if (!response.ok) throw new Error('Invalid api call')
