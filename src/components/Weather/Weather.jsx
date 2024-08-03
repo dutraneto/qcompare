@@ -2,7 +2,6 @@ import Image from 'next/image'
 import { useEffect, useState } from 'react'
 
 function Weather() {
-  const [ipData, setIpData] = useState({})
   const [weatherData, setWeatherData] = useState({})
   const [isLoading, setIsLoading] = useState(true)
 
@@ -14,7 +13,6 @@ function Weather() {
         return response.json()
       })
       .then((ipData) => {
-        setIpData(ipData)
         const { latitude, longitude } = ipData
         const weatherApiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${process.env.NEXT_PUBLIC_WEATHER_API}`
         return fetch(weatherApiUrl)

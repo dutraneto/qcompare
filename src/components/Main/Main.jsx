@@ -4,7 +4,7 @@ import FormView from '../Form/FormView'
 // import Canvas from 'components/Canvas/Canvas'
 
 function Main(props) {
-  const { toolTip, weatherProps } = props
+  const { toolTip } = props
   const { title, description } = toolTip
 
   return (
