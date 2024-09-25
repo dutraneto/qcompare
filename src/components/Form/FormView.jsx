@@ -10,34 +10,38 @@ function FormView() {
   const [string1, setString1] = React.useState('')
   const [string2, setString2] = React.useState('')
   const [selectedEnabled, setSelectedEnabled] = React.useState('words')
-  const [buttonState, setButtonState] = React.useState({
-    initialText: 'Compare Text',
-    bgColor: 'bg-blue'
-  })
+  const [buttonState, setButtonState] = React.useState({})
+
+  const stringsAreSet = string1 ?? string2
+  const buttonStates = {
+    initial: {
+      initialText: 'Analyze Differences',
+      bgColor: 'bg-blue'
+    },
+    match: {
+      initialText: 'Texts Match',
+      bgColor: 'bg-green'
+    },
+    differ: {
+      initialText: 'Texts Differ',
+      bgColor: 'bg-red'
+    }
+  }
 
   React.useEffect(() => {
     if (string1 === '' && string2 === '') {
-      stateOfButton({
-        initialText: 'Analyze Differences',
-        bgColor: 'bg-blue'
-      })
+      getButtonState(buttonStates.initial)
       return
     } else if (string1 === string2) {
-      stateOfButton({
-        initialText: 'Texts Match',
-        bgColor: 'bg-green'
-      })
-      confetti({
+      getButtonState(buttonStates.match)
+      const confettiOptions = {
         particleCount: 180,
         startVelocity: 50,
         spread: 300,
-        origin: { y: 0.7 }
-      })
-    } else
-      stateOfButton({
-        initialText: 'Texts Differ',
-        bgColor: 'bg-red'
-      })
+        origin: { y: 0.6 }
+      }
+      confetti(confettiOptions)
+    } else getButtonState(buttonStates.differ)
   }, [string1, string2, selectedEnabled])
 
   function handleSubmit(event) {
@@ -46,21 +50,22 @@ function FormView() {
     setString2(event.target.elements.textArea2.value.trim())
   }
 
-  function stateOfButton(args) {
+  function getButtonState(args) {
     setButtonState(args)
   }
 
-  function handleClick(event) {
+  function handleClear(event) {
     event.preventDefault()
     event.target.form[0].value = ''
-    event.target.form[1].value = ''
     setString1('')
+    event.target.form[1].value = ''
     setString2('')
   }
 
   function diffView() {
     return <Diff string1={string1} string2={string2} mode={selectedEnabled} />
   }
+
   return (
     <>
       {(string1 && diffView()) || (string2 && diffView())}
@@ -85,21 +90,20 @@ function FormView() {
         </div>
         <div className="flex justify-evenly relative">
           <Button
-            buttonText={`Clear`}
             bgColor={`bg-transparent`}
             style={
-              !string1 && !string2
+              !stringsAreSet
                 ? `text-slate-100 border absolute top-0 left-0 bottom-0`
                 : `text-blue border hover:bg-blue hover:text-white absolute top-0 left-0 bottom-0`
             }
-            onClick={handleClick}
-            disabled={!string1 && !string2}
-          />
-          <Button
-            buttonText={buttonState.initialText}
-            bgColor={buttonState.bgColor}
-            style={`text-white`}
-          />
+            onClick={handleClear}
+            disabled={!stringsAreSet}
+          >
+            Clear
+          </Button>
+          <Button style={`text-white w-60 ${buttonState.bgColor}`}>
+            {buttonState.initialText}
+          </Button>
         </div>
         <ul className="flex items-center gap-5 absolute -right-44 hover:right-0 bottom-0 bg-white dark:bg-black p-px transition-all list-none">
           <li className="animate-bounce">
