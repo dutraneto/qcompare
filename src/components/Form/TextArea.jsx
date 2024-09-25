@@ -13,7 +13,7 @@ export default function TextArea(props) {
         {labelText}
       </label>
       <textarea
-        className={`w-full h-60 rounded text-base focus:outline-slate-400 resize-none whitespace-pre-wrap break-all dark:bg-[#1E293B] dark:text-white`}
+        className={`w-full h-60 text-base focus:outline-slate-400 resize-none whitespace-pre-wrap break-all bg-field dark:text-white border border-black dark:border-white`}
         id={id}
         name={name}
         cols={30}

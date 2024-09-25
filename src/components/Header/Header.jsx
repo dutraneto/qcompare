@@ -7,7 +7,7 @@ function Header(props) {
   const { src, alt } = props
   const styles = {
     header:
-      'bg-gray-50 p-6 flex items-end justify-between items-center dark:bg-[#0F172A]',
+      'bg-white p-6 flex items-end justify-between items-center dark:bg-black',
     fluid: 'fluid',
     h1: 'text-lg font-bold ml-4'
   }

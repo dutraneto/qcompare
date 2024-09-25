@@ -11,8 +11,9 @@ module.exports = {
       mono: 'monospace'
     },
     colors: {
-      'black': '#282828',
+      'black': 'rgb(5,5,10)',
       'white': '#FFFFFF',
+      'field': 'rgba(189, 200, 255, 0.09)',
       'red': '#FF0000',
       'orange': '#FF8700',
       'yellow': '#FFD700',

@@ -1,4 +1,4 @@
-import { FaSun, FaMoon } from 'react-icons/fa'
+import { IoSunnyOutline, IoMoonOutline } from 'react-icons/io5'
 
 const InputToggle = (props) => {
   // Use the useState hook to keep track of the current mode (light or dark)
@@ -22,9 +22,9 @@ const InputToggle = (props) => {
       >
         {/* Show the sun icon for light mode and the moon icon for dark mode */}
         {props.currentTheme === 'dark' ? (
-          <FaSun className="absolute inset-0 text-orange text-3xl" />
+          <IoSunnyOutline className="absolute inset-0 text-white text-3xl" />
         ) : (
-          <FaMoon className="absolute inset-0 text-purple text-3xl" />
+          <IoMoonOutline className="absolute inset-0 text-black text-3xl" />
         )}
         {/* Use a pseudo-element to create the sliding toggle effect */}
         <span className="absolute inset-0" />
