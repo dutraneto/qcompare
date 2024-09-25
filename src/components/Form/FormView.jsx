@@ -4,6 +4,7 @@ import TextArea from './TextArea'
 import Button from './Button'
 import InputControls from './InputControls'
 import confetti from 'canvas-confetti'
+import { PiArrowFatLeftLight } from 'react-icons/pi'
 
 function FormView() {
   const [string1, setString1] = React.useState('')
@@ -26,7 +27,12 @@ function FormView() {
         initialText: 'Texts Match',
         bgColor: 'bg-green'
       })
-      confetti()
+      confetti({
+        particleCount: 180,
+        startVelocity: 50,
+        spread: 300,
+        origin: { y: 0.7 }
+      })
     } else
       stateOfButton({
         initialText: 'Texts Differ',
@@ -95,8 +101,10 @@ function FormView() {
             style={`text-white`}
           />
         </div>
-        <ul className="flex items-center gap-5 absolute -right-44 hover:right-0 bottom-0 bg-gray-200 dark:bg-slate-900 p-px transition-all list-none">
-          <li className="animate-bounce">⬅</li>
+        <ul className="flex items-center gap-5 absolute -right-44 hover:right-0 bottom-0 bg-white dark:bg-black p-px transition-all list-none">
+          <li className="animate-bounce">
+            <PiArrowFatLeftLight className="text-black text-2xl dark:text-white" />
+          </li>
           <InputControls
             selectedEnabled={selectedEnabled}
             setSelectedEnabled={setSelectedEnabled}

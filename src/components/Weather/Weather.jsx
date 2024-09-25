@@ -55,8 +55,8 @@ function Weather() {
 
 function WeatherWrapper({ city, country, tempC, weatherDesc, weatherIcon }) {
   return (
-    <div className="p-6 flex sm:items-end lg:items-center relative z-1 w-full sm:w-2/5 overflow-hidden rounded">
-      <div className="absolute -z-1 bg-purple dark:bg-[#1E293B] opacity-30 dark:opacity-100 w-100 height-100 left-0 right-0 bottom-0 top-0"></div>
+    <div className="p-6 flex sm:items-end lg:items-center relative z-1 w-full sm:w-2/5 overflow-hidden">
+      <div className="absolute -z-1 bg-purple dark:bg-black dark:border dark:border-solid dark:border-white opacity-30 dark:opacity-100 w-100 height-100 left-0 right-0 bottom-0 top-0 rounded"></div>
       {city && country && tempC && weatherDesc && weatherIcon && (
         <div className="w-full z-50 flex justify-between">
           <div className="flex flex-col justify-center">
