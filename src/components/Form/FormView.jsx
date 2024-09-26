@@ -89,18 +89,19 @@ function FormView() {
           />
         </div>
         <div className="flex justify-evenly relative">
-          <Button
-            bgColor={`bg-transparent`}
-            style={
-              !stringsAreSet
-                ? `text-slate-100 border absolute top-0 left-0 bottom-0`
-                : `text-blue border hover:bg-blue hover:text-white absolute top-0 left-0 bottom-0`
-            }
-            onClick={handleClear}
-            disabled={!stringsAreSet}
-          >
-            Clear
-          </Button>
+          {stringsAreSet && (
+            <Button
+              bgColor={`bg-transparent`}
+              style={
+                !stringsAreSet
+                  ? `text-slate-100 border absolute top-0 left-0 bottom-0`
+                  : `text-blue border hover:bg-blue hover:text-white absolute top-0 left-0 bottom-0`
+              }
+              onClick={handleClear}
+            >
+              Clear
+            </Button>
+          )}
           <Button style={`text-white w-60 ${buttonState.bgColor}`}>
             {buttonState.initialText}
           </Button>
