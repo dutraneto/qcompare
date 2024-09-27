@@ -63,7 +63,7 @@ function WeatherSkeleton() {
           <span className="bg-slate-100 rounded w-52 h-4 animate-pulse mb-1"></span>
         </div>
         <div className="flex flex-col items-center">
-          <div className='w-[6.25rem] h-[6.25rem] bg-slate-100 rounded-full animate-pulse mb-1'></div>
+          <div className="w-[6.25rem] h-[6.25rem] bg-slate-100 rounded-full animate-pulse mb-1"></div>
           <small className="bg-slate-100 rounded w-full h-4 animate-pulse"></small>
         </div>
       </div>
