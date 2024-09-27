@@ -1,7 +1,7 @@
 import * as diff from 'diff'
 import * as React from 'react'
 import { v1 as uuidv1 } from 'uuid'
-import { BsExclamationCircle } from "react-icons/bs";
+import { BsExclamationCircle } from 'react-icons/bs'
 import { IconContext } from 'react-icons'
 
 const styles = {
@@ -91,7 +91,7 @@ const Diff = ({ string1, string2, mode = 'words' }) => {
     if (value !== undefined) {
       const replacedValue = value.replace(/\r?\n/g, '\r\n')
 
-      return replacedValue.split('\r\n').map((line, idx) => {
+      return replacedValue.split('\r\n').map((line) => {
         return renderLine(line, uuidv1(), nodeStyles)
       })
     }
