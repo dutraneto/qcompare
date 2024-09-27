@@ -115,12 +115,12 @@ const Diff = ({ string1, string2, mode = 'words' }) => {
   return (
     <div className="flex gap-3 mb-12">
       {/* Original text (Before) */}
-      <div className="flex-1 max-w-[50%] bg-gray-200 dark:bg-[#1E293B] dark:text-white p-4 relative break-all overflow-hidden">
+      <div className="flex-1 max-w-[50%] bg-gray-200 dark:bg-field dark:text-white p-4 relative break-all overflow-hidden">
         {processGroups(true)} {/* Highlight "removed" in before */}
       </div>
 
       {/* Updated text (After) */}
-      <div className="flex-1 max-w-[50%] bg-gray-200 dark:bg-[#1E293B] dark:text-white p-4 relative break-all overflow-hidden">
+      <div className="flex-1 max-w-[50%] bg-gray-200 dark:bg-field dark:text-white p-4 relative break-all overflow-hidden">
         {processGroups(false)} {/* Highlight "added" in after */}
       </div>
     </div>
