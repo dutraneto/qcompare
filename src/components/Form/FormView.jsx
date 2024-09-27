@@ -12,7 +12,7 @@ function FormView() {
   const [selectedEnabled, setSelectedEnabled] = React.useState('words')
   const [buttonState, setButtonState] = React.useState({})
 
-  const stringsAreSet = string1 ?? string2
+  const stringsAreSet = string1 || string2
   const buttonStates = {
     initial: {
       initialText: 'Analyze Differences',
