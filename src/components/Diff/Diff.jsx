@@ -1,6 +1,8 @@
 import * as diff from 'diff'
 import * as React from 'react'
 import { v1 as uuidv1 } from 'uuid'
+import { BsExclamationCircle } from 'react-icons/bs'
+import { IconContext } from 'react-icons'
 
 const styles = {
   added: {
@@ -26,143 +28,102 @@ const Diff = ({ string1, string2, mode = 'words' }) => {
     }
   }, [string1, string2, mode])
 
-  function hasWhiteSpace(s) {
-    return s.indexOf('  ') >= 0
+  // function that checks for double spaces
+  const hasDoubleSpaces = (line) => line.includes('  ')
+
+  const renderDoubleSpacesBadge = (line) => {
+    if (hasDoubleSpaces(line)) {
+      return (
+        <span
+          className={`bg-slate-100 font-bold px-[6px] py-[5px] rounded-l-full text-xs w-auto h-auto overflow-hidden absolute -right-[160px] hover:right-0 bottom-2 cursor-pointer animate-pulse transition ease-in-out delay-75 duration-100 hover:animate-none hover:transition-all dark:text-black flex content-center`}
+        >
+          <IconContext.Provider value={{ size: '1rem' }}>
+            <span>
+              <BsExclamationCircle />
+            </span>
+          </IconContext.Provider>
+          &nbsp;&nbsp;&nbsp;Check for double spaces
+        </span>
+      )
+    }
   }
 
-  const mappedNodesBefore = groups.map((group) => {
-    group.id = uuidv1()
-    let { value, added, removed } = group
-    let nodeStyles = {}
-    if (added) {
-      value = undefined
+  // Helper function to render each line with optional empty lines handling
+  const renderLine = (line, idx, nodeStyles) => {
+    // If line is empty, render a placeholder for empty lines
+    if (line === '') {
+      return (
+        <div
+          key={uuidv1()}
+          className={`mb-px h-4 bg-slate-100 animate-pulse`}
+        />
+      )
     }
-    if (removed) {
-      nodeStyles = { ...styles.added }
-    }
-    if (value !== undefined) {
-      const replacedValue = value.replace(/\r?\n/g, '\r\n')
-      const emptyLines = []
-      return replacedValue.split('\r\n').map((line) => {
-        const idx = uuidv1()
-        if (line === '') {
-          emptyLines.push(line)
-        } else {
-          return (
-            <>
-              <span
-                key={idx}
-                className={`lines font-mono text-base h-5 mb-1 ${nodeStyles.background} ${nodeStyles.color}  whitespace-pre-wrap`}
-              >
-                {line}
-              </span>
-              {hasWhiteSpace(line) ? (
-                <span
-                  className={`font-bold bg-pink px-[6px] py-[5px] w-6 h-6 rounded-l-full text-xs w-auto h-auto overflow-hidden absolute -right-[160px] hover:right-0 bottom-2 cursor-pointer animate-pulse transition ease-in-out delay-75 duration-100 hover:animate-none hover:transition-all dark:text-black`}
-                >
-                  <span>❗️</span>
-                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Check for double spaces
-                </span>
-              ) : null}
-            </>
-          )
-        }
-        if (emptyLines.length === 0 || emptyLines === 1) {
-          return
-        } else {
-          for (let l = 0; l < emptyLines.length; l++) {
-            return (
-              <div
-                key={idx}
-                className={`mb-px h-4 bg-slate-100 dark:bg-slate-700 animate-pulse`}
-              />
-            )
-          }
-        }
-      })
-    }
+    // Render non-empty lines
     return (
-      <span
-        key={group.id}
-        className={`lines font-mono text-base h-5 mb-1 ${nodeStyles.background} ${nodeStyles.color}  whitespace-pre-wrap`}
-      >
-        {value}
-      </span>
+      <>
+        <span
+          key={idx}
+          className={`lines font-mono text-base h-5 mb-1 whitespace-pre-wrap ${
+            nodeStyles.background || ''
+          } ${nodeStyles.color || ''}`}
+        >
+          {line}
+        </span>
+        {renderDoubleSpacesBadge(line, nodeStyles)}
+      </>
     )
-  })
+  }
 
-  const mappedNodesAfter = groups.map((group) => {
-    group.id = uuidv1()
-    let { value, added, removed } = group
+  // Render the group for each side (before and after)
+  const renderGroup = (group, isBefore) => {
+    const { added, removed, value } = group
     let nodeStyles = {}
-    if (removed) {
-      value = undefined
+
+    // Set styles based on added/removed status
+    if (isBefore && removed) {
+      nodeStyles = styles.removed
+    } else if (!isBefore && added) {
+      nodeStyles = styles.added
     }
-    if (added) {
-      nodeStyles = { ...styles.removed }
-    }
+
+    // Handle non-empty group values
     if (value !== undefined) {
       const replacedValue = value.replace(/\r?\n/g, '\r\n')
-      const emptyLines = []
+
       return replacedValue.split('\r\n').map((line) => {
-        const idx = uuidv1()
-        if (line === '') {
-          emptyLines.push(line)
-        } else {
-          return (
-            <>
-              <span
-                key={idx}
-                className={`lines font-mono text-base h-5 mb-1 ${nodeStyles.background} ${nodeStyles.color}  whitespace-pre-wrap`}
-              >
-                {line}
-              </span>
-              {hasWhiteSpace(line) ? (
-                <span
-                  className={`font-bold bg-palegreen px-[6px] py-[5px] w-6 rounded-l-full text-xs w-auto h-auto overflow-hidden absolute -right-[160px] hover:right-0 bottom-2 cursor-pointer animate-pulse transition ease-in-out delay-75 duration-100 hover:animate-none hover:transition-all dark:text-black`}
-                >
-                  <span>❗️</span>
-                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Check for double spaces
-                </span>
-              ) : null}
-            </>
-          )
-        }
-        if (emptyLines.length === 0 || emptyLines === 1) {
-          return
-        } else {
-          for (let l = 0; l < emptyLines.length; l++) {
-            return (
-              <div
-                key={idx}
-                className={`mb-px h-4 bg-slate-100 dark:bg-slate-700 animate-pulse`}
-              />
-            )
-          }
-        }
+        return renderLine(line, uuidv1(), nodeStyles)
       })
     }
-    return (
-      <span
-        key={group.id}
-        className={`lines font-mono text-base h-5 mb-1 ${nodeStyles.background} ${nodeStyles.color}  whitespace-pre-wrap`}
-      >
-        {value}
-      </span>
-    )
-  })
+    return null
+  }
+
+  // Process the groups for each side (before and after)
+  const processGroups = (isBefore) => {
+    return groups.map((group) => {
+      if (isBefore && group.removed) {
+        return renderGroup(group, true) // Render "Before" with removed parts
+      } else if (!isBefore && group.added) {
+        return renderGroup(group, false) // Render "After" with added parts
+      } else if (!group.added && !group.removed) {
+        return renderGroup(group, isBefore) // Render unchanged parts in both
+      }
+      return null
+    })
+  }
 
   return (
-    <>
-      <div className="flex gap-3 mb-12 ">
-        <div className="flex-1 max-w-[50%] bg-gray-200 dark:bg-[#1E293B] dark:text-white p-4 relative break-all overflow-hidden">
-          {mappedNodesBefore}
-        </div>
-        <div className="flex-1 max-w-[50%] bg-gray-200 dark:bg-[#1E293B] dark:text-white p-4 relative break-all overflow-hidden">
-          {mappedNodesAfter}
-        </div>
+    <div className="flex gap-3 mb-12">
+      {/* Original text (Before) */}
+      <div className="flex-1 max-w-[50%] bg-gray-200 dark:bg-[#1E293B] dark:text-white p-4 relative break-all overflow-hidden">
+        {processGroups(true)} {/* Highlight "removed" in before */}
       </div>
-    </>
+
+      {/* Updated text (After) */}
+      <div className="flex-1 max-w-[50%] bg-gray-200 dark:bg-[#1E293B] dark:text-white p-4 relative break-all overflow-hidden">
+        {processGroups(false)} {/* Highlight "added" in after */}
+      </div>
+    </div>
   )
 }
 
