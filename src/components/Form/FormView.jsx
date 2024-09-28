@@ -92,11 +92,7 @@ function FormView() {
           {stringsAreSet && (
             <Button
               bgColor={`bg-transparent`}
-              style={
-                !stringsAreSet
-                  ? `text-slate-100 border absolute top-0 left-0 bottom-0`
-                  : `text-blue border hover:bg-blue hover:text-white absolute top-0 left-0 bottom-0`
-              }
+              style={`text-white dark:text-black bg-black dark:bg-white absolute top-0 left-0 bottom-0`}
               onClick={handleClear}
             >
               Clear
