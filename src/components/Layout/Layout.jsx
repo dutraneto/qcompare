@@ -4,6 +4,10 @@ import Main from 'components/Main/Main'
 import Footer from 'components/Footer/Footer'
 
 function Layout(props) {
+  const christmasTime = 'Nov 26'
+  const today = new Date()
+  const isChristmas = String(today).includes(christmasTime)
+
   return (
     <>
       <Head>
@@ -24,11 +28,12 @@ function Layout(props) {
       </Head>
       <Header
         {...props.logo}
+        isChristmas={isChristmas}
         siteName={props.siteName}
         currentTheme={props.currentTheme}
         setTheme={props.setTheme}
       />
-      <Main toolTip={props.tooltip} />
+      <Main toolTip={props.tooltip} isChristmas={isChristmas}/>
       <Footer />
     </>
   )
