@@ -3,7 +3,7 @@ export const localData = {
   logo: {
     src: '/images/icon-new.svg',
     christmas: {
-      src: '/images/icontip-christmas.svg',
+      src: '/images/icontip-christmas.svg'
     },
     alt: 'Qcompare Logo'
   },

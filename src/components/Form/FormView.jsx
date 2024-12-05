@@ -10,9 +10,6 @@ function FormView() {
   const [string1, setString1] = React.useState('')
   const [string2, setString2] = React.useState('')
   const [selectedEnabled, setSelectedEnabled] = React.useState('words')
-  const [buttonState, setButtonState] = React.useState({})
-
-  const stringsAreSet = string1 || string2
   const buttonStates = {
     initial: {
       initialText: 'Analyze Differences',
@@ -27,11 +24,13 @@ function FormView() {
       bgColor: 'bg-red'
     }
   }
+  const [buttonState, setButtonState] = React.useState(buttonStates.initial)
+
+  const stringsAreSet = string1 || string2
 
   React.useEffect(() => {
     if (string1 === '' && string2 === '') {
       getButtonState(buttonStates.initial)
-      return
     } else if (string1 === string2) {
       getButtonState(buttonStates.match)
       const confettiOptions = {
@@ -42,7 +41,7 @@ function FormView() {
       }
       confetti(confettiOptions)
     } else getButtonState(buttonStates.differ)
-  }, [string1, string2, selectedEnabled])
+  }, [string1, string2])
 
   function handleSubmit(event) {
     event.preventDefault()
