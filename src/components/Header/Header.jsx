@@ -4,7 +4,7 @@ import Image from 'next/image'
 import * as React from 'react'
 
 function Header(props) {
-  const { src, alt, isChristmas, christmas } = props
+  const { alt, christmas } = props
   const styles = {
     header:
       'bg-white p-6 flex items-end justify-between items-center dark:bg-black',
@@ -17,7 +17,7 @@ function Header(props) {
       <Link href={`https://github.com/dutraneto`}>
         <a className="h-auto w-100" target="_blank">
           <Image
-            src={isChristmas ? christmas.src : src}
+            src={christmas.src}
             width={100}
             height={100}
             alt={alt}

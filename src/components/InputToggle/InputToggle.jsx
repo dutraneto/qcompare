@@ -23,6 +23,7 @@ const InputToggle = (props) => {
         {/* Show the sun icon for light mode and the moon icon for dark mode */}
         {props.currentTheme === 'dark' ? (
           <IoSunnyOutline className="absolute inset-0 text-white text-3xl" />
+          
         ) : (
           <IoMoonOutline className="absolute inset-0 text-black text-3xl" />
         )}
