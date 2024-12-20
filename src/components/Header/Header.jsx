@@ -4,7 +4,7 @@ import Image from 'next/image'
 import * as React from 'react'
 
 function Header(props) {
-  const { src, alt } = props
+  const { alt, christmas } = props
   const styles = {
     header:
       'bg-white p-6 flex items-end justify-between items-center dark:bg-black',
@@ -16,15 +16,13 @@ function Header(props) {
     <header className={styles.header}>
       <Link href={`https://github.com/dutraneto`}>
         <a className="h-auto w-100" target="_blank">
-          {src && (
-            <Image
-              src={src}
-              width={80}
-              height={80}
-              alt={alt}
-              className={styles.fluid}
-            />
-          )}
+          <Image
+            src={christmas.src}
+            width={100}
+            height={100}
+            alt={alt}
+            className={styles.fluid}
+          />
         </a>
       </Link>
       <InputToggle
